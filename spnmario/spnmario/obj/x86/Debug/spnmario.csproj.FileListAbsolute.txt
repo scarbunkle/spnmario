@@ -1,0 +1,18 @@
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\bin\x86\Debug\spnmario.exe
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\bin\x86\Debug\spnmario.pdb
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.csprojResolveAssemblyReference.cache
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.exe
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.pdb
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\bin\x86\Debug\Content\char.xnb
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\bin\x86\Debug\Content\mishapocalypse.xnb
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\char.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\mishapocalypse.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\spnmario.exe
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\spnmario.pdb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.csprojResolveAssemblyReference.cache
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.exe
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.pdb

@@ -1,0 +1,2 @@
+C:\Users\Sarah\Documents\Visual Studio 2010\Projects\spnmario\spnmario\spnmarioContent\obj\x86\Debug\spnmarioContent.contentprojResolveAssemblyReference.cache
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\obj\x86\Debug\spnmarioContent.contentprojResolveAssemblyReference.cache
