@@ -56,6 +56,7 @@ namespace spnmario
 
             // TODO: use this.Content to load your game content here
             samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
+            dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace spnmario
 
             // TODO: Add your update logic here
             samplelevel.Update();
-
+            dude.Update();
             base.Update(gameTime);
         }
 
@@ -95,6 +96,7 @@ namespace spnmario
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             samplelevel.Draw(spriteBatch);
+            dude.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

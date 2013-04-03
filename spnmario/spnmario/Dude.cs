@@ -36,7 +36,8 @@ namespace spnmario
         //update loop
         public void Update()
         {
-
+            //Gravity: makes gravity happen
+            Movement(); //runs listeners and handles x/y positioning.
         }
 
         //draw
@@ -44,5 +45,19 @@ namespace spnmario
         {
             theSB.Draw(CharacterAssetSheet, rect, Color.White);
         }
+
+        /*Handles movement involving listeners*/
+        public void Movement()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                rect.X-=3;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
+                rect.X+=3;
+            }
+        }
+        
     }
 }
