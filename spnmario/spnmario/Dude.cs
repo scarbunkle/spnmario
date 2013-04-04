@@ -28,6 +28,7 @@ namespace spnmario
         //variables for collision logic
         public Vector2 foot;
         public bool onGround; //true if not falling
+        public int airTime;//time in air
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
@@ -37,16 +38,16 @@ namespace spnmario
         }
 
         //update loop
-        public void Update(Level l)
+        public void Update(Level l, GameTime gameTime)
         {
             //Detect existing collisions
 
-            onGround = Collision.isColliding(l, foot);
+            airTimeManagement(l, gameTime);
 
             //Gravity: makes gravity happen
             if (!(onGround))
             {
-                rect.Y += 5;
+                rect.Y += (int)(.5* Math.Abs(airTime-4));
             }
             
             Movement(); //runs listeners and handles x/y positioning.
@@ -72,7 +73,7 @@ namespace spnmario
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 
-                rect.Y -= 8; 
+                rect.Y -= 10; 
             }
 
             //refresh collision variables
@@ -80,6 +81,23 @@ namespace spnmario
             foot.Y = rect.Y + rect.Height;
 
         }
-        
+        public void airTimeManagement(Level l, GameTime gameTime)
+        {
+            if (onGround)
+            {
+                airTime = 0;
+            }
+            else if (Collision.isColliding(l, foot).isSolid)
+            {
+                rect.Y = Collision.isColliding(l, foot).rect.Y - 70;
+                foot.Y = rect.Y + rect.Height;
+                
+            }
+
+                onGround = Collision.isColliding(l, foot).isSolid;
+
+            airTime++;
+        }
+
     }
 }

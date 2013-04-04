@@ -26,6 +26,12 @@ namespace spnmario
             rect = r;
             isSolid = solid;
         }
+
+        public Tile()
+        {
+            rect = new Rectangle(0, 0, 0, 0);
+            isSolid = false;
+        }
         //Update calls all our update-cycle logic.
         public void Update()
         {

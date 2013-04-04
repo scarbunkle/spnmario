@@ -13,16 +13,17 @@ namespace spnmario
 {
     public class Collision
     {
-        public static bool isColliding(Level l, Vector2 v){
+        public static Tile isColliding(Level l, Vector2 v){
             Point p = new Point((int)v.X, (int)v.Y);
             foreach (Tile t in l.theLevel){
                     if (t.rect.Contains(p) && t.isSolid){
-                     return true;
+                     return t;
                     }   
             }
-            return false;
+            return new Tile();
             
         }
 
+        
     }
 }
