@@ -81,7 +81,7 @@ namespace spnmario
 
             // TODO: Add your update logic here
             samplelevel.Update();
-            dude.Update();
+            dude.Update(samplelevel);
             base.Update(gameTime);
         }
 

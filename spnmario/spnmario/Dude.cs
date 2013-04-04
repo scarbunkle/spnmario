@@ -37,10 +37,11 @@ namespace spnmario
         }
 
         //update loop
-        public void Update()
+        public void Update(Level l)
         {
             //Detect existing collisions
 
+            onGround = Collision.isColliding(l, foot);
 
             //Gravity: makes gravity happen
             if (!(onGround))
