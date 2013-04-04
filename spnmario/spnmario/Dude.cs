@@ -25,19 +25,31 @@ namespace spnmario
             Cas,
             Bobby,
         }
-
+        //variables for collision logic
+        public Vector2 foot;
+        public bool onGround; //true if not falling
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
             CharacterAssetSheet = asset;
             rect = r;
+            foot = new Vector2(r.X + (r.Width / 2), r.Y + r.Height);
         }
 
         //update loop
         public void Update()
         {
+            //Detect existing collisions
+
+
             //Gravity: makes gravity happen
+            if (!(onGround))
+            {
+                rect.Y += 5;
+            }
+            
             Movement(); //runs listeners and handles x/y positioning.
+            
         }
 
         //draw
@@ -57,6 +69,15 @@ namespace spnmario
             {
                 rect.X+=3;
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            { 
+                rect.Y -= 8; 
+            }
+
+            //refresh collision variables
+            foot.X = rect.X + (rect.Width / 2);
+            foot.Y = rect.Y + rect.Height;
+
         }
         
     }
