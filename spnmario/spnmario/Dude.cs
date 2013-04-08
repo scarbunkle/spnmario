@@ -96,7 +96,14 @@ namespace spnmario
             }
             else if (Interaction.isColliding(l, lowerLeft).isSolid || Interaction.isColliding(l, lowerRight).isSolid)
             {
-                rect.Y = Interaction.isColliding(l, lowerLeft).rect.Y - 70;
+                if (Interaction.isColliding(l, lowerLeft).isSolid)
+                {
+                    rect.Y = Interaction.isColliding(l, lowerLeft).rect.Y - 70;
+                }
+                else
+                {
+                    rect.Y = Interaction.isColliding(l, lowerRight).rect.Y - 70;
+                }
                 foot.Y = rect.Y + rect.Height;
                 
             }
