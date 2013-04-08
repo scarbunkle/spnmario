@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace spnmario
 {
-    public class Collision
+    public class Interaction
     {
         public static Tile isColliding(Level l, Vector2 v){
             Point p = new Point((int)v.X, (int)v.Y);

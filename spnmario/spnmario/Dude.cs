@@ -28,6 +28,10 @@ namespace spnmario
         //variables for collision logic
         public Vector2 foot;
         public bool onGround; //true if not falling
+        public Vector2 lowerRight;
+        public Vector2 upperRight;
+        public Vector2 upperLeft;
+        public Vector2 lowerLeft;
         public int airTime;//time in air
         //constructor
         public Dude(Rectangle r, Texture2D asset)
@@ -35,6 +39,10 @@ namespace spnmario
             CharacterAssetSheet = asset;
             rect = r;
             foot = new Vector2(r.X + (r.Width / 2), r.Y + r.Height);
+            lowerRight = new Vector2(r.X + r.Width, r.Y + r.Height -5);
+            upperRight = new Vector2(r.X + r.Width, r.Y);
+            upperLeft = new Vector2(r.X, r.Y);
+            lowerLeft = new Vector2(r.X, r.Y + r.Height -5);
         }
 
         //update loop
@@ -50,7 +58,7 @@ namespace spnmario
                 rect.Y += (int)(.5* Math.Abs(airTime-4));
             }
             
-            Movement(); //runs listeners and handles x/y positioning.
+            Movement(l); //runs listeners and handles x/y positioning.
             
         }
 
@@ -61,24 +69,23 @@ namespace spnmario
         }
 
         /*Handles movement involving listeners*/
-        public void Movement()
+        public void Movement(Level l)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,lowerLeft).isSolid || Interaction.isColliding(l, upperLeft).isSolid))
             {
-                rect.X-=3;
+                rect.X-=5;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, lowerRight).isSolid || Interaction.isColliding(l, upperRight).isSolid))
             {
-                rect.X+=3;
+                rect.X+=5;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 
-                rect.Y -= 10; 
+                rect.Y -= 15; 
             }
 
             //refresh collision variables
-            foot.X = rect.X + (rect.Width / 2);
-            foot.Y = rect.Y + rect.Height;
+            moveSensors();
 
         }
         public void airTimeManagement(Level l, GameTime gameTime)
@@ -87,17 +94,30 @@ namespace spnmario
             {
                 airTime = 0;
             }
-            else if (Collision.isColliding(l, foot).isSolid)
+            else if (Interaction.isColliding(l, lowerLeft).isSolid || Interaction.isColliding(l, lowerRight).isSolid)
             {
-                rect.Y = Collision.isColliding(l, foot).rect.Y - 70;
+                rect.Y = Interaction.isColliding(l, lowerLeft).rect.Y - 70;
                 foot.Y = rect.Y + rect.Height;
                 
             }
 
-                onGround = Collision.isColliding(l, foot).isSolid;
+            onGround = Interaction.isColliding(l, lowerLeft).isSolid || Interaction.isColliding(l, lowerRight).isSolid;
 
             airTime++;
         }
 
+        public void moveSensors()
+        {
+            foot.X = rect.X + (rect.Width / 2);
+            foot.Y = rect.Y + rect.Height;
+            lowerRight.X = rect.X + rect.Width;
+            lowerRight.Y = rect.Y + rect.Height -5;
+            upperRight.X = rect.X + rect.Width;
+            upperRight.Y = rect.Y;
+            upperLeft.X = rect.X;
+            upperLeft.Y = rect.Y;
+            lowerLeft.X = rect.X;
+            lowerLeft.Y = rect.Y + rect.Height -5;
+        }
     }
 }
