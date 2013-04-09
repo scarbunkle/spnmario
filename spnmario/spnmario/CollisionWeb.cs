@@ -13,32 +13,33 @@ namespace spnmario
 {
     public class CollisionWeb
     {
-        public Vector2[] points;
+        public Checkpoint[] points;
         public Rectangle area;
 
         public CollisionWeb(Rectangle r)
         {
             area = r;
-            points = new Vector2[6];
+            points = new Checkpoint[6];
+            for (int i = 0; i<points.Length; i++)
+            {
+                points[i]=new Checkpoint(0,0);
+            }
             pointsUpdate(r);
         }
 
-        /*This doesn't work.  I need to make a class that stores this data 
-         * & can retrieve it as a Point or Vector2.*/
-        public static void vectorUpdate(float x, float y, Vector2 v)
-        {
-            v.X = x;
-            v.Y = y;
-        }
+
 
         public void pointsUpdate(Rectangle r)
         {
-            vectorUpdate(r.X, r.Y, points[0]);
-            vectorUpdate(r.X + r.Width, r.Y, points[1]);
-            vectorUpdate(r.X + r.Width, r.Y + r.Height - 5, points[2]);
-            vectorUpdate(r.X + r.Width - 5, r.Y + r.Height, points[3]);
-            vectorUpdate(r.X + 5, r.Y + r.Height, points[4]);
-            vectorUpdate(r.X, r.Y + r.Height - 5, points[5]);
+            if (r != null)
+            {
+                points[0].Update(r.X, r.Y);
+                points[1].Update(r.X + r.Width, r.Y);
+                points[2].Update(r.X + r.Width, r.Y + r.Height - 5);
+                points[3].Update(r.X + r.Width - 5, r.Y + r.Height);
+                points[4].Update(r.X + 5, r.Y + r.Height);
+                points[5].Update(r.X, r.Y + r.Height - 5);
+            }
         }
     }
 }

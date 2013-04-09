@@ -20,11 +20,7 @@ namespace TestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            CollisionWeb testme = new CollisionWeb(new Rectangle(40, 40, 70, 70));
-            Vector2 vector = new Vector2(7,7);
-            CollisionWeb.vectorUpdate(8, 8, vector);
-            vector.X = 9;
-            Assert.IsTrue(vector.X == (float)9);
+            
         }
     }
 }
