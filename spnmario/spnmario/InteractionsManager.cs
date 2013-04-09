@@ -14,7 +14,7 @@ namespace spnmario
     public class Interaction
     {
         public static Tile isColliding(Level l, Vector2 v){
-            Point p = new Point((int)v.X, (int)v.Y);
+            Point p = pointCast(v);
             foreach (Tile t in l.theLevel){
                     if (t.rect.Contains(p) && t.isSolid){
                      return t;
@@ -22,6 +22,11 @@ namespace spnmario
             }
             return new Tile();
             
+        }
+
+        public static Point pointCast(Vector2 v)
+        {
+            return new Point((int)v.X, (int)v.Y);
         }
 
         

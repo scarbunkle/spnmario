@@ -12,11 +12,12 @@ namespace spnmario
 {
     /*Dude's our character sprite.  It'll eventually get a bunch of
      * fun logic, handling animation, as well as who you're playing 
-     * as.  It will also probably handle our collision/movement logic.*/
+     * as.  It also handles some mechanics of collision logic, but 
+     * some get passed off to InteractionsManager and CollisionWeb.*/
     public class Dude
     {
         public Texture2D CharacterAssetSheet;
-        public Rectangle rect;
+        public CollisionWeb web;//contains Draw rectangle and collision points
         //This enum's for ater use--allows only one asset sheet overall.
         public enum PlayingAs
         {
@@ -26,23 +27,14 @@ namespace spnmario
             Bobby,
         }
         //variables for collision logic
-        public Vector2 foot;
-        public bool onGround; //true if not falling
-        public Vector2 lowerRight;
-        public Vector2 upperRight;
-        public Vector2 upperLeft;
-        public Vector2 lowerLeft;
+        public bool onGround;
         public int airTime;//time in air
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
             CharacterAssetSheet = asset;
-            rect = r;
-            foot = new Vector2(r.X + (r.Width / 2), r.Y + r.Height);
-            lowerRight = new Vector2(r.X + r.Width, r.Y + r.Height -5);
-            upperRight = new Vector2(r.X + r.Width, r.Y);
-            upperLeft = new Vector2(r.X, r.Y);
-            lowerLeft = new Vector2(r.X, r.Y + r.Height -5);
+            web = new CollisionWeb(r);
+            
         }
 
         //update loop
@@ -55,7 +47,7 @@ namespace spnmario
             //Gravity: makes gravity happen
             if (!(onGround))
             {
-                rect.Y += (int)(.5* Math.Abs(airTime-4));
+                web.area.Y += (int)(.5* Math.Abs(airTime-4));
             }
             
             Movement(l); //runs listeners and handles x/y positioning.
@@ -65,27 +57,27 @@ namespace spnmario
         //draw
         public void Draw(SpriteBatch theSB)
         {
-            theSB.Draw(CharacterAssetSheet, rect, Color.White);
+            theSB.Draw(CharacterAssetSheet, web.area, Color.White);
         }
 
         /*Handles movement involving listeners*/
         public void Movement(Level l)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,lowerLeft).isSolid || Interaction.isColliding(l, upperLeft).isSolid))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,web.points[0]).isSolid || Interaction.isColliding(l, web.points[5]).isSolid))
             {
-                rect.X-=5;
+                web.area.X-=5;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, lowerRight).isSolid || Interaction.isColliding(l, upperRight).isSolid))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, web.points[1]).isSolid || Interaction.isColliding(l, web.points[2]).isSolid))
             {
-                rect.X+=5;
+                web.area.X+=5;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 
-                rect.Y -= 15; 
+                web.area.Y -= 15; 
             }
 
             //refresh collision variables
-            moveSensors();
+
 
         }
         public void airTimeManagement(Level l, GameTime gameTime)
@@ -94,37 +86,24 @@ namespace spnmario
             {
                 airTime = 0;
             }
-            else if (Interaction.isColliding(l, lowerLeft).isSolid || Interaction.isColliding(l, lowerRight).isSolid)
+            else if (Interaction.isColliding(l, web.points[4]).isSolid || Interaction.isColliding(l, web.points[3]).isSolid)
             {
-                if (Interaction.isColliding(l, lowerLeft).isSolid)
+                if (Interaction.isColliding(l, web.points[3]).isSolid)
                 {
-                    rect.Y = Interaction.isColliding(l, lowerLeft).rect.Y - 70;
+                    web.area.Y = Interaction.isColliding(l, web.points[3]).rect.Y - 70;
                 }
                 else
                 {
-                    rect.Y = Interaction.isColliding(l, lowerRight).rect.Y - 70;
+                    web.area.Y = Interaction.isColliding(l, web.points[4]).rect.Y - 70;
                 }
-                foot.Y = rect.Y + rect.Height;
-                
-            }
 
-            onGround = Interaction.isColliding(l, lowerLeft).isSolid || Interaction.isColliding(l, lowerRight).isSolid;
+            }
+            web.pointsUpdate(web.area);
+            onGround = Interaction.isColliding(l, web.points[3]).isSolid || Interaction.isColliding(l, web.points[4]).isSolid;
 
             airTime++;
         }
 
-        public void moveSensors()
-        {
-            foot.X = rect.X + (rect.Width / 2);
-            foot.Y = rect.Y + rect.Height;
-            lowerRight.X = rect.X + rect.Width;
-            lowerRight.Y = rect.Y + rect.Height -5;
-            upperRight.X = rect.X + rect.Width;
-            upperRight.Y = rect.Y;
-            upperLeft.X = rect.X;
-            upperLeft.Y = rect.Y;
-            lowerLeft.X = rect.X;
-            lowerLeft.Y = rect.Y + rect.Height -5;
-        }
+
     }
 }
