@@ -122,8 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\spnmarioContent\spnmarioContent.contentproj">
-      <Name>spnmarioContent</Name>
+      <Name>spnmarioContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{9E66E763-128A-4C2E-9C74-5F4B48602F80}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

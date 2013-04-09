@@ -23,6 +23,8 @@ namespace spnmario
             pointsUpdate(r);
         }
 
+        /*This doesn't work.  I need to make a class that stores this data 
+         * & can retrieve it as a Point or Vector2.*/
         public static void vectorUpdate(float x, float y, Vector2 v)
         {
             v.X = x;

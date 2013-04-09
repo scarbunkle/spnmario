@@ -1,0 +1,5 @@
+C:\Users\Sarah\Documents\GitHub\spnmario\testing\bin\Debug\testing.dll
+C:\Users\Sarah\Documents\GitHub\spnmario\testing\bin\Debug\testing.pdb
+C:\Users\Sarah\Documents\GitHub\spnmario\testing\obj\Debug\testing.csprojResolveAssemblyReference.cache
+C:\Users\Sarah\Documents\GitHub\spnmario\testing\obj\Debug\testing.dll
+C:\Users\Sarah\Documents\GitHub\spnmario\testing\obj\Debug\testing.pdb

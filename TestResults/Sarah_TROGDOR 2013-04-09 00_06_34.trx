@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ef3a00d9-05ab-417e-8b0a-b3f1920a2e0c" name="Sarah@TROGDOR 2013-04-09 00:06:34" runUser="TROGDOR\Sarah" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="54ba7e87-19a6-4b8d-ba6c-e4803ae8a05b">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sarah_TROGDOR 2013-04-09 00_06_34">
+      <DeploymentItem filename="C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\spnmario.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-04-09T00:06:34.8516168-04:00" queuing="2013-04-09T00:06:34.8646711-04:00" start="2013-04-09T00:06:34.8686722-04:00" finish="2013-04-09T00:06:34.9756948-04:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\sarah\documents\github\spnmario\testproject1\bin\debug\testproject1.dll" id="59863143-3238-122e-4d8a-637b491cc755">
+      <Execution id="798c6a98-7a71-4b7c-84b3-a4066cd52808" />
+      <TestMethod codeBase="C:/Users/Sarah/Documents/GitHub/spnmario/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.UnitTest1, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="59863143-3238-122e-4d8a-637b491cc755" executionId="798c6a98-7a71-4b7c-84b3-a4066cd52808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="798c6a98-7a71-4b7c-84b3-a4066cd52808" testId="59863143-3238-122e-4d8a-637b491cc755" testName="TestMethod1" computerName="TROGDOR" duration="00:00:00.0084085" startTime="2013-04-09T00:06:34.8706731-04:00" endTime="2013-04-09T00:06:34.9676934-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="798c6a98-7a71-4b7c-84b3-a4066cd52808">
+    </UnitTestResult>
+  </Results>
+</TestRun>

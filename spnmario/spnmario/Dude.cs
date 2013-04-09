@@ -99,6 +99,7 @@ namespace spnmario
 
             }
             web.pointsUpdate(web.area);
+            Console.Out.WriteLine(web.points[3]);
             onGround = Interaction.isColliding(l, web.points[3]).isSolid || Interaction.isColliding(l, web.points[4]).isSolid;
 
             airTime++;
