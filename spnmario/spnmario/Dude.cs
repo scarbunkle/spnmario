@@ -48,13 +48,14 @@ namespace spnmario
         {
             //Detect existing collisions
 
-            airTimeManagement(l, gameTime);
+
 
             //Gravity: makes gravity happen
             if (!(onGround))
             {
                 web.area.Y += (int)(.5* Math.Abs(airTime-4));
             }
+            airTimeManagement(l, gameTime);
             
             Movement(l); //runs listeners and handles x/y positioning.
             
