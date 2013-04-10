@@ -13,15 +13,25 @@ namespace spnmario
 {
     public class Interaction
     {
-        public static Tile isColliding(Level l, Vector2 v){
-            Point p = pointCast(v);
+        public static Tile inTile(Level l, Checkpoint c){
             foreach (Tile t in l.theLevel){
-                    if (t.rect.Contains(p) && t.isSolid){
+                    if (t.rect.Contains(c.getPoint())){
                      return t;
                     }   
             }
             return new Tile();
             
+        }
+
+        public static bool isColliding(Level l, Checkpoint c){
+            foreach (Tile t in l.theLevel)
+            {
+                if (t.rect.Contains(c.getPoint()) && t.isSolid)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static Point pointCast(Vector2 v)

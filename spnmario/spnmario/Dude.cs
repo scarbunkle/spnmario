@@ -37,6 +37,12 @@ namespace spnmario
             
         }
 
+        public Dude(Rectangle r)
+        {
+            web = new CollisionWeb(r);
+        }
+
+
         //update loop
         public void Update(Level l, GameTime gameTime)
         {
@@ -63,11 +69,11 @@ namespace spnmario
         /*Handles movement involving listeners*/
         public void Movement(Level l)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,web.points[0].getVector()).isSolid || Interaction.isColliding(l, web.points[5].getVector()).isSolid))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,web.points[0]) || Interaction.isColliding(l, web.points[5])))
             {
                 web.area.X-=5;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, web.points[1].getVector()).isSolid || Interaction.isColliding(l, web.points[2].getVector()).isSolid))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, web.points[1]) || Interaction.isColliding(l, web.points[2])))
             {
                 web.area.X+=5;
             }
@@ -82,27 +88,30 @@ namespace spnmario
         }
         public void airTimeManagement(Level l, GameTime gameTime)
         {
+            
+            onGround = Interaction.isColliding(l, web.points[3]) || Interaction.isColliding(l, web.points[4]);
+            web.pointsUpdate(web.area);
             if (onGround)
             {
                 airTime = 0;
             }
-            else if (Interaction.isColliding(l, web.points[4].getVector()).isSolid || Interaction.isColliding(l, web.points[3].getVector()).isSolid)
+            else if (Interaction.isColliding(l, web.points[4]) || Interaction.isColliding(l, web.points[3]))
             {
-                if (Interaction.isColliding(l, web.points[3].getVector()).isSolid)
+                Console.Out.WriteLine("Landed");
+                if (Interaction.isColliding(l, web.points[5]) && Interaction.isColliding(l, web.points[2]))
                 {
-                    web.area.Y = Interaction.isColliding(l, web.points[3].getVector()).rect.Y - 70;
+                    Console.Out.WriteLine("Fixin Shit");
+                    web.area.Y = Interaction.inTile(l, web.points[0]).rect.Y;
                 }
-                else
-                {
-                    web.area.Y = Interaction.isColliding(l, web.points[4].getVector()).rect.Y - 70;
-                }
-
             }
-            web.pointsUpdate(web.area);
-            Console.Out.WriteLine(web.points[3]);
-            onGround = Interaction.isColliding(l, web.points[3].getVector()).isSolid || Interaction.isColliding(l, web.points[4].getVector()).isSolid;
+            
 
             airTime++;
+        }
+
+        public void doesthiswork()
+        {
+            web.area.Y = 35;
         }
 
 
