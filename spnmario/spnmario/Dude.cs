@@ -46,18 +46,19 @@ namespace spnmario
         //update loop
         public void Update(Level l, GameTime gameTime)
         {
-            //Detect existing collisions
+            
 
 
 
             //Gravity: makes gravity happen
             if (!(onGround))
             {
-                web.area.Y += (int)(.5* Math.Abs(airTime-4));
+                web.area.Y += (int)(.3* Math.Abs(airTime));
             }
-            airTimeManagement(l, gameTime);
+            
             
             Movement(l); //runs listeners and handles x/y positioning.
+            airTimeManagement(l, gameTime);
             
         }
 
@@ -90,7 +91,6 @@ namespace spnmario
         public void airTimeManagement(Level l, GameTime gameTime)
         {
             
-            onGround = Interaction.isColliding(l, web.points[3]) || Interaction.isColliding(l, web.points[4]);
             web.pointsUpdate(web.area);
             if (onGround)
             {
@@ -98,14 +98,13 @@ namespace spnmario
             }
             else if (Interaction.isColliding(l, web.points[4]) || Interaction.isColliding(l, web.points[3]))
             {
-                Console.Out.WriteLine("Landed");
-                if (Interaction.isColliding(l, web.points[5]) && Interaction.isColliding(l, web.points[2]))
-                {
+                
                     Console.Out.WriteLine("Fixin Shit");
-                    web.area.Y = Interaction.inTile(l, web.points[0]).rect.Y;
-                }
+                    web.area.Y = Interaction.inTile(l, web.points[2]).rect.Y - web.area.Height;
+                
             }
-            
+
+            onGround = Interaction.isColliding(l, web.points[3]) || Interaction.isColliding(l, web.points[4]);
 
             airTime++;
         }
