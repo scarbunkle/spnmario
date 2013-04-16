@@ -77,7 +77,17 @@ namespace spnmario
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, web.points[1]) || Interaction.isColliding(l, web.points[2])))
             {
-                web.area.X+=5;
+                if (web.area.X < 1280 / 2)
+                {
+                    web.area.X += 5;
+                }
+                else
+                {
+                    foreach (Tile t in l.theLevel)
+                    {
+                        t.rect.X -= 5;
+                    }
+                }
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 

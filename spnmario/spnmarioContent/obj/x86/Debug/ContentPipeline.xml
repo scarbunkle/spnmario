@@ -28,6 +28,16 @@
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb</Output>
       <Time>2013-04-01T21:11:19.0497007-04:00</Time>
     </Item>
+    <Item>
+      <Source>Carry On Wayward Son.mp3</Source>
+      <Name>Carry On Wayward Son</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Carry On Wayward Son.xnb</Output>
+      <Extra>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Carry On Wayward Son.wma</Extra>
+      <Time>2013-04-16T15:46:13.7151234-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

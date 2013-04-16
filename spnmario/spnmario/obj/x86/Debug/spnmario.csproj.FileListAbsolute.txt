@@ -16,3 +16,5 @@ C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmari
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.exe
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\obj\x86\Debug\spnmario.pdb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Carry On Wayward Son.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Carry On Wayward Son.wma
