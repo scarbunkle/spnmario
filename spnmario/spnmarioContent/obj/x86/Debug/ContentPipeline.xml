@@ -38,6 +38,24 @@
       <Extra>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Carry On Wayward Son.wma</Extra>
       <Time>2013-04-16T15:46:13.7151234-04:00</Time>
     </Item>
+    <Item>
+      <Source>Title Slide.png</Source>
+      <Name>Title Slide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Title Slide.xnb</Output>
+      <Time>2013-04-16T17:00:03.400596-04:00</Time>
+    </Item>
+    <Item>
+      <Source>winscreen.png</Source>
+      <Name>winscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\winscreen.xnb</Output>
+      <Time>2013-04-16T17:00:09.7375594-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

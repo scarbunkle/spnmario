@@ -24,6 +24,17 @@ namespace spnmario
         //Level as a class lets us keep all the yucky for-loops of our Main.
         Level samplelevel;
 
+        enum Display
+        {
+            Title,
+            Play,
+            End,
+        }
+
+        Display showing;
+        Texture2D title;
+        Texture2D win;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -55,6 +66,8 @@ namespace spnmario
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            showing = Display.Title;
+            title = Content.Load<Texture2D>("Title Slide");
             samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
         }
@@ -80,8 +93,19 @@ namespace spnmario
                 this.Exit();
 
             // TODO: Add your update logic here
-            samplelevel.Update();
-            dude.Update(samplelevel, gameTime);
+            switch (showing){
+                case Display.Play:
+                    samplelevel.Update();
+                    dude.Update(samplelevel, gameTime);
+                 break;
+                case Display.Title:
+                    if (Keyboard.GetState().IsKeyDown(Keys.Space)){
+                        showing = Display.Play;
+                    }
+                break;
+                default:
+                break;
+            }
             base.Update(gameTime);
         }
 
@@ -95,8 +119,18 @@ namespace spnmario
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            samplelevel.Draw(spriteBatch);
-            dude.Draw(spriteBatch);
+            switch (showing)
+            {
+                case Display.Play:
+                    samplelevel.Draw(spriteBatch);
+                    dude.Draw(spriteBatch);
+                    break;
+                case Display.Title:
+                    spriteBatch.Draw(title, new Vector2(0, 0), Color.White);
+                    break;
+                case Display.End:
+                    break;
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }
