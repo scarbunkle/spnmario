@@ -63,13 +63,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carry On Wayward Son.mp3">
-      <Name>Carry On Wayward Son</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Title Slide.png">
       <Name>Title Slide</Name>
       <Importer>TextureImporter</Importer>
@@ -81,6 +74,13 @@
       <Name>winscreen</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="track.wav">
+      <Name>track</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

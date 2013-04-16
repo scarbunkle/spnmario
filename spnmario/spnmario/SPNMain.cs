@@ -35,6 +35,10 @@ namespace spnmario
         Texture2D title;
         Texture2D win;
 
+        SoundEffect sound;
+        SoundEffectInstance song;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,8 +75,16 @@ namespace spnmario
             win = Content.Load<Texture2D>("winscreen");
             samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
+            sound = Content.Load<SoundEffect>("track");
+            song = sound.CreateInstance();
+            song.IsLooped = true;
         }
 
+        public void LoadLevel()
+        {
+            samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
+            dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
+        }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -96,11 +108,16 @@ namespace spnmario
             // TODO: Add your update logic here
             switch (showing){
                 case Display.Play:
+                    song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
                     if (dude.web.area.X > 1000)
                     {
                         showing = Display.End;
+                    }
+                    if (dude.web.area.Y > 720)
+                    {
+                        LoadLevel();
                     }
                  break;
                 case Display.Title:
