@@ -81,7 +81,10 @@ namespace spnmario
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 
-                web.area.Y -= 15; 
+                if (!(Interaction.isColliding(l,web.points[0])||Interaction.isColliding(l,web.points[1])))
+                {
+                    web.area.Y -= 15; 
+                }
             }
 
             //refresh collision variables
