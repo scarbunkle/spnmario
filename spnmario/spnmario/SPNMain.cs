@@ -68,6 +68,7 @@ namespace spnmario
             // TODO: use this.Content to load your game content here
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
+            win = Content.Load<Texture2D>("winscreen");
             samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
         }
@@ -97,6 +98,10 @@ namespace spnmario
                 case Display.Play:
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
+                    if (dude.web.area.X > 1000)
+                    {
+                        showing = Display.End;
+                    }
                  break;
                 case Display.Title:
                     if (Keyboard.GetState().IsKeyDown(Keys.Space)){
@@ -129,6 +134,7 @@ namespace spnmario
                     spriteBatch.Draw(title, new Vector2(0, 0), Color.White);
                     break;
                 case Display.End:
+                    spriteBatch.Draw(win, new Vector2(0, 0), Color.White);
                     break;
             }
             spriteBatch.End();
