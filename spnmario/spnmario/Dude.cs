@@ -100,7 +100,7 @@ namespace spnmario
             {
                 
                     Console.Out.WriteLine("Fixin Shit");
-                    web.area.Y = Interaction.inTile(l, web.points[2]).rect.Y - web.area.Height;
+                    web.area.Y = Interaction.inTile(l, web.points[3]).rect.Y - web.area.Height;
                 
             }
 
