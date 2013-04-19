@@ -13,7 +13,6 @@ In its simplest form, spnmario is a free, fan-made Supernatural video game.  It'
 ***
 ## Help Out
 spnmario needs more than coders.  Artists, musicians, writers, and level designers are all encouraged to help out.  Feel free to fork the project to add your contributions, or contact scarbunkle, either here or on tumblr.  Additional details and specifications will appear on the Wiki.  
- 
-
+***
 ## Technical
 The game is going to be written in C#, using the XNA 4.0 libraries.  Why?  Because despite Microsoft ending support for it, XNA represents a pretty simple way of writing games, that manages to run relatively efficiently.  More importantly, though, I know how to use it.  
