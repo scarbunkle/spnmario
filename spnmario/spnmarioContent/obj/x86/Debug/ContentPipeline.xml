@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\char.xnb</Output>
-      <Time>2013-04-01T21:11:08.1799403-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\char.xnb</Output>
+      <Time>2013-04-21T12:36:12.1010214-04:00</Time>
     </Item>
     <Item>
       <Source>mishapocalypse.jpg</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\mishapocalypse.xnb</Output>
-      <Time>2013-04-01T21:11:14.2041019-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\mishapocalypse.xnb</Output>
+      <Time>2013-04-21T12:36:12.1020218-04:00</Time>
     </Item>
     <Item>
       <Source>tile.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb</Output>
-      <Time>2013-04-01T21:11:19.0497007-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb</Output>
+      <Time>2013-04-21T12:36:12.1104763-04:00</Time>
     </Item>
     <Item>
       <Source>Title Slide.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Title Slide.xnb</Output>
-      <Time>2013-04-16T17:00:03.400596-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\Title Slide.xnb</Output>
+      <Time>2013-04-21T12:36:12.1000219-04:00</Time>
     </Item>
     <Item>
       <Source>winscreen.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\winscreen.xnb</Output>
-      <Time>2013-04-16T17:00:09.7375594-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\winscreen.xnb</Output>
+      <Time>2013-04-21T12:36:12.9175644-04:00</Time>
     </Item>
     <Item>
       <Source>track.wav</Source>
@@ -52,8 +52,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\track.xnb</Output>
-      <Time>2013-04-16T17:36:16.0119144-04:00</Time>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\track.xnb</Output>
+      <Time>2013-04-21T12:36:12.9125641-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -61,10 +61,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

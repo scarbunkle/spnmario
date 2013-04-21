@@ -13,16 +13,23 @@ namespace spnmario
 {
     public class CollisionWeb
     {
-        public Checkpoint[] points;
+        public Checkpoint[] points
+        {
+            get
+            {
+                return p;
+            }
+        }
+        protected Checkpoint[] p;
         public Rectangle area;
 
         public CollisionWeb(Rectangle r)
         {
             area = r;
-            points = new Checkpoint[6];
+            p = new Checkpoint[6];
             for (int i = 0; i<points.Length; i++)
             {
-                points[i]=new Checkpoint(0,0);
+                p[i]=new Checkpoint(0,0);
             }
             pointsUpdate(r);
         }
@@ -33,12 +40,12 @@ namespace spnmario
         {
             if (r != null)
             {
-                points[0].Update(r.X, r.Y);
-                points[1].Update(r.X + r.Width, r.Y);
-                points[2].Update(r.X + r.Width, r.Y + r.Height - 5);
-                points[3].Update(r.X + r.Width - 5, r.Y + r.Height);
-                points[4].Update(r.X + 5, r.Y + r.Height);
-                points[5].Update(r.X, r.Y + r.Height - 5);
+                p[0].Update(r.X, r.Y);
+                p[1].Update(r.X + r.Width, r.Y);
+                p[2].Update(r.X + r.Width, r.Y + r.Height - 5);
+                p[3].Update(r.X + r.Width - 5, r.Y + r.Height);
+                p[4].Update(r.X + 5, r.Y + r.Height);
+                p[5].Update(r.X, r.Y + r.Height - 5);
             }
         }
     }
