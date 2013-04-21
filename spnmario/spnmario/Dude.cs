@@ -29,6 +29,7 @@ namespace spnmario
         //variables for collision logic
         public bool onGround;
         public int airTime;//time in air
+        
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
@@ -37,6 +38,7 @@ namespace spnmario
             
         }
 
+        //deprecated
         public Dude(Rectangle r)
         {
             web = new CollisionWeb(r);
@@ -110,7 +112,7 @@ namespace spnmario
             }
         }
 
-
+        //handles ground collisions, airtime, and landingfix
         public void airTimeManagement(Level l, GameTime gameTime)
         {
             
@@ -132,6 +134,7 @@ namespace spnmario
             airTime++;
         }
 
+        //deprecated
         public void doesthiswork()
         {
             web.area.Y = 35;

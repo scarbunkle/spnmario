@@ -20,6 +20,7 @@ namespace spnmario
         public Rectangle rect;
         public bool isSolid;
 
+        //constructor
         public Tile(Rectangle r, Texture2D asset, bool solid)
         {
             dirt = asset;
@@ -27,11 +28,13 @@ namespace spnmario
             isSolid = solid;
         }
 
+        //empty constructor
         public Tile()
         {
             rect = new Rectangle(0, 0, 0, 0);
             isSolid = false;
         }
+
         //Update calls all our update-cycle logic.
         public void Update()
         {

@@ -11,8 +11,11 @@ using Microsoft.Xna.Framework.Media;
 
 namespace spnmario
 {
+    /*Interaction holds our collision detection functions in a
+     * bunch of static methods.*/
     public class Interaction
     {
+        //returns the tile a checkpoint is in
         public static Tile inTile(Level l, Checkpoint c){
             foreach (Tile t in l.theLevel){
                     if (t.rect.Contains(c.getPoint())){
@@ -23,6 +26,7 @@ namespace spnmario
             
         }
 
+        //returns true if the checkpoint's in a solid tile
         public static bool isColliding(Level l, Checkpoint c){
             foreach (Tile t in l.theLevel)
             {
@@ -34,11 +38,10 @@ namespace spnmario
             return false;
         }
 
+        //deprecated
         public static Point pointCast(Vector2 v)
         {
             return new Point((int)v.X, (int)v.Y);
         }
-
-        
     }
 }
