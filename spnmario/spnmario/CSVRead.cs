@@ -30,6 +30,19 @@ namespace spnmario
             
             return vals;
         }
+        public static bool[,] getLevel(string s)
+        {
+            String[,] raw = readCSV(s);
+            bool[,] bools = new bool[raw.GetLength(0), raw.GetLength(1)];
+            for (int i = 0; i < bools.GetLength(0); i++)
+            {
+                for (int j = 0; j < bools.GetLength(1); j++)
+                {
+                    bools[i, j] = (raw[i, j] == "true");
+                }
+            }
+            return bools;
+        }
 
     }
 }
