@@ -16,8 +16,16 @@ namespace spnmario
      * some get passed off to InteractionsManager and CollisionWeb.*/
     public class Dude
     {
-        public Texture2D CharacterAssetSheet;
-        public CollisionWeb web;//contains Draw rectangle and collision points
+        protected Texture2D CharacterAssetSheet;
+        public CollisionWeb web //reads W
+        {
+            get
+            {
+                return W;
+            }
+        }
+
+        protected CollisionWeb W;//contains Draw rectangle and collision points
         //This enum's for ater use--allows only one asset sheet overall.
         public enum PlayingAs
         {
@@ -27,19 +35,21 @@ namespace spnmario
             Bobby,
         }
         //variables for collision logic
-        public bool onGround;
-        public int airTime;//time in air
+        protected bool onGround;
+        protected int airTime;//time in air
+        
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
             CharacterAssetSheet = asset;
-            web = new CollisionWeb(r);
+            W = new CollisionWeb(r);
             
         }
 
+        //deprecated
         public Dude(Rectangle r)
         {
-            web = new CollisionWeb(r);
+            W = new CollisionWeb(r);
         }
 
 
@@ -53,11 +63,12 @@ namespace spnmario
             //Gravity: makes gravity happen
             if (!(onGround))
             {
-                web.area.Y += (int)(.3* Math.Abs(airTime));
+                W.area.Y += (int)(.3* Math.Abs(airTime));
             }
             
             
             Movement(l); //runs listeners and handles x/y positioning.
+            W.pointsUpdate();
             airTimeManagement(l, gameTime);
             
         }
@@ -65,15 +76,15 @@ namespace spnmario
         //draw
         public void Draw(SpriteBatch theSB)
         {
-            theSB.Draw(CharacterAssetSheet, web.area, Color.White);
+            theSB.Draw(CharacterAssetSheet, W.area, Color.White);
         }
 
         /*Handles movement involving listeners*/
         public void Movement(Level l)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,web.points[0]) || Interaction.isColliding(l, web.points[5])))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,W.points[0]) || Interaction.isColliding(l, W.points[5])))
             {
-                if (web.area.X < 450 && l.theLevel[0, 0].rect.X < 0)
+                if (W.area.X < 450 && l.theLevel[0, 0].rect.X < 0)
                 {
                     foreach (Tile t in l.theLevel)
                     {
@@ -82,13 +93,13 @@ namespace spnmario
                 }
                 else
                 {
-                    web.area.X -= 5;
+                    W.area.X -= 5;
                 }
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, web.points[1]) || Interaction.isColliding(l, web.points[2])))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, W.points[1]) || Interaction.isColliding(l, W.points[2])))
             {
 
-                if (web.area.X > 600 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > 1200)
+                if (W.area.X > 600 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > 1200)
                 {
                     foreach (Tile t in l.theLevel)
                     {
@@ -97,45 +108,44 @@ namespace spnmario
                 }
                 else
                 {
-                    web.area.X += 5;
+                    W.area.X += 5;
                 }
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             { 
-                if (!(Interaction.isColliding(l,web.points[0])||Interaction.isColliding(l,web.points[1])))
+                if (!(Interaction.isColliding(l,W.points[0])||Interaction.isColliding(l,W.points[1])))
                 {
-                    web.area.Y -= 15; 
+                    W.area.Y -= 15; 
                 }
             }
-
-            //refresh collision variables
-
-
         }
+
+        //handles ground collisions, airtime, and landingfix
         public void airTimeManagement(Level l, GameTime gameTime)
         {
             
-            web.pointsUpdate(web.area);
+            
             if (onGround)
             {
                 airTime = 0;
             }
-            else if (Interaction.isColliding(l, web.points[4]) || Interaction.isColliding(l, web.points[3]))
+            else if (Interaction.isColliding(l, W.points[4]) || Interaction.isColliding(l, W.points[3]))
             {
                 
                     Console.Out.WriteLine("Fixin Shit");
-                    web.area.Y = Interaction.inTile(l, web.points[3]).rect.Y - web.area.Height;
+                    W.area.Y = Interaction.inTile(l, W.points[3]).rect.Y - W.area.Height;
                 
             }
 
-            onGround = Interaction.isColliding(l, web.points[3]) || Interaction.isColliding(l, web.points[4]);
+            onGround = Interaction.isColliding(l, W.points[3]) || Interaction.isColliding(l, W.points[4]);
 
             airTime++;
         }
 
+        //deprecated
         public void doesthiswork()
         {
-            web.area.Y = 35;
+            W.area.Y = 35;
         }
 
 

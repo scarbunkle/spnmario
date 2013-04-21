@@ -23,19 +23,19 @@ namespace spnmario
         Dude dude;
         //Level as a class lets us keep all the yucky for-loops of our Main.
         Level samplelevel;
-
+        //This switches between screens/levels  BFD.
         enum Display
         {
             Title,
             Play,
             End,
         }
+        Display showing; //stores our current Display
+        Texture2D title; //Slide visible on open
+        Texture2D win; //Last Slide
 
-        Display showing;
-        Texture2D title;
-        Texture2D win;
-
-        SoundEffect sound;
+        //Used to play music
+        SoundEffect sound; 
         SoundEffectInstance song;
 
 
@@ -80,6 +80,7 @@ namespace spnmario
             song.IsLooped = true;
         }
 
+        //used to reset at death
         public void LoadLevel()
         {
             samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
@@ -107,25 +108,25 @@ namespace spnmario
 
             // TODO: Add your update logic here
             switch (showing){
-                case Display.Play:
+                case Display.Play: //runs the game proper
                     song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
-                    if (dude.web.area.X > 1000)
+                    if (dude.web.area.X > 1000) //allows death
                     {
                         showing = Display.End;
                     }
-                    if (dude.web.area.Y > 720)
+                    if (dude.web.area.Y > 720) //Allows victory
                     {
                         LoadLevel();
                     }
                  break;
-                case Display.Title:
+                case Display.Title: //start screen
                     if (Keyboard.GetState().IsKeyDown(Keys.Space)){
                         showing = Display.Play;
                     }
                 break;
-                default:
+                default: //does nothing, used for end
                 break;
             }
             base.Update(gameTime);
