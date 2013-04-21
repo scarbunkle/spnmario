@@ -58,6 +58,7 @@ namespace spnmario
             
             
             Movement(l); //runs listeners and handles x/y positioning.
+            web.pointsUpdate();
             airTimeManagement(l, gameTime);
             
         }
@@ -107,15 +108,13 @@ namespace spnmario
                     web.area.Y -= 15; 
                 }
             }
-
-            //refresh collision variables
-
-
         }
+
+
         public void airTimeManagement(Level l, GameTime gameTime)
         {
             
-            web.pointsUpdate(web.area);
+            
             if (onGround)
             {
                 airTime = 0;
