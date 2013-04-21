@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -125,6 +126,7 @@ namespace spnmario
                     if (Keyboard.GetState().IsKeyDown(Keys.Space)){
                         showing = Display.Play;
                     }
+                    Console.Out.WriteLine(CSVRead.readCSV(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\samplelevel.txt")[0, 0]);                   
                 break;
                 default: //does nothing, used for end
                 break;
