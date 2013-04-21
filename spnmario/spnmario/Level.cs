@@ -25,8 +25,8 @@ namespace spnmario
                 return tL;
             }
         }
-        public int length;
-        public int height;
+        protected int length;
+        protected int height;
         
         //Constructor
         public Level(Texture2D dirt, bool[,] vals){

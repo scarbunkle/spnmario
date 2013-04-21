@@ -18,21 +18,28 @@ namespace spnmario
     {
         public Texture2D dirt;
         public Rectangle rect;
-        public bool isSolid;
+        public bool isSolid //accesses drawme
+        {
+            get
+            {
+                return drawme;
+            }
+        }
+        protected bool drawme; //controls whether it's drawn/solid
 
         //constructor
         public Tile(Rectangle r, Texture2D asset, bool solid)
         {
             dirt = asset;
             rect = r;
-            isSolid = solid;
+            drawme = solid;
         }
 
         //empty constructor
         public Tile()
         {
             rect = new Rectangle(0, 0, 0, 0);
-            isSolid = false;
+            drawme = false;
         }
 
         //Update calls all our update-cycle logic.
@@ -43,7 +50,7 @@ namespace spnmario
         //Draws if you can't be here.
         public void Draw(SpriteBatch theSB)
         {
-            if (isSolid)
+            if (drawme)
             {
                 theSB.Draw(dirt, rect, Color.White);
             }
