@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -83,7 +84,7 @@ namespace spnmario
         //used to reset at death
         public void LoadLevel()
         {
-            samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
+            samplelevel = new Level(Content.Load<Texture2D>("tile"), CSVRead.getLevel(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\samplelevel.txt"));
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
         }
         /// <summary>
@@ -125,6 +126,7 @@ namespace spnmario
                     if (Keyboard.GetState().IsKeyDown(Keys.Space)){
                         showing = Display.Play;
                     }
+                    Console.Out.WriteLine(CSVRead.readCSV(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\samplelevel.txt")[0, 0]);                   
                 break;
                 default: //does nothing, used for end
                 break;
@@ -158,9 +160,7 @@ namespace spnmario
             spriteBatch.End();
             base.Draw(gameTime);
         }
-        /* This just reads in the solid/non-solid status for every tile in the sample level.
-         * It needs to be replaced by a file I/O class to convert an appropriately formatted
-         * csv.*/
+        //DEPRECATED
         public bool[,] sampleload()
         {
             return new bool[,]{{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
