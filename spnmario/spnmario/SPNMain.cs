@@ -74,7 +74,7 @@ namespace spnmario
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
             win = Content.Load<Texture2D>("winscreen");
-            samplelevel = new Level(Content.Load<Texture2D>("tile"), sampleload());
+            samplelevel = new Level(Content.Load<Texture2D>("tile"), CSVRead.getLevel(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\samplelevel.txt"));
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
             sound = Content.Load<SoundEffect>("track");
             song = sound.CreateInstance();
@@ -125,8 +125,7 @@ namespace spnmario
                 case Display.Title: //start screen
                     if (Keyboard.GetState().IsKeyDown(Keys.Space)){
                         showing = Display.Play;
-                    }
-                    Console.Out.WriteLine(CSVRead.readCSV(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\samplelevel.txt")[0, 0]);                   
+                    }     
                 break;
                 default: //does nothing, used for end
                 break;
@@ -159,19 +158,6 @@ namespace spnmario
             }
             spriteBatch.End();
             base.Draw(gameTime);
-        }
-        //DEPRECATED
-        public bool[,] sampleload()
-        {
-            return new bool[,]{{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,false,false,true,true,true,true,true,false,false,false,false,false,false,true,true,true,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{false,false,false,false,false,false,false,false,false,false,true,true,true,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false},
-{true,true,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true},
-{true,true,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true}};
         }
     }
 }
