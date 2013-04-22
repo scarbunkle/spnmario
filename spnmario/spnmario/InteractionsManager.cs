@@ -37,11 +37,5 @@ namespace spnmario
             }
             return false;
         }
-
-        //deprecated
-        public static Point pointCast(Vector2 v)
-        {
-            return new Point((int)v.X, (int)v.Y);
-        }
     }
 }

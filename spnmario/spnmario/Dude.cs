@@ -46,13 +46,6 @@ namespace spnmario
             
         }
 
-        //deprecated
-        public Dude(Rectangle r)
-        {
-            W = new CollisionWeb(r);
-        }
-
-
         //update loop
         public void Update(Level l, GameTime gameTime)
         {
@@ -141,13 +134,5 @@ namespace spnmario
 
             airTime++;
         }
-
-        //deprecated
-        public void doesthiswork()
-        {
-            W.area.Y = 35;
-        }
-
-
     }
 }
