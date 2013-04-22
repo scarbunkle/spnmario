@@ -13,8 +13,10 @@ using Microsoft.Xna.Framework.Media;
 
 namespace spnmario
 {
+    /* This is a pretty utility sort of class.  It reads CSVs into 2d arrays.*/
     public class CSVRead
     {
+        //reads a CSV into a String[,]
         public static String[,] readCSV(string s)
         {
     	    String[] lines = File.ReadAllLines(s);
@@ -30,6 +32,7 @@ namespace spnmario
             
             return vals;
         }
+        //reads a CSV into a bool[,]
         public static bool[,] getLevel(string s)
         {
             String[,] raw = readCSV(s);
