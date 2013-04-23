@@ -84,6 +84,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="sample2.csv">
+      <Name>sample2</Name>
+    </None>
     <None Include="samplelevel.txt">
       <Name>samplelevel</Name>
     </None>
