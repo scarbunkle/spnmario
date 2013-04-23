@@ -55,6 +55,15 @@
       <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\track.xnb</Output>
       <Time>2013-04-21T12:36:12.9125641-04:00</Time>
     </Item>
+    <Item>
+      <Source>TileAssetSheet.png</Source>
+      <Name>TileAssetSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\TileAssetSheet.xnb</Output>
+      <Time>2013-04-22T22:56:29.6859527-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -84,9 +84,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="sample2.csv">
+      <Name>sample2</Name>
+    </None>
     <None Include="samplelevel.txt">
       <Name>samplelevel</Name>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TileAssetSheet.png">
+      <Name>TileAssetSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
