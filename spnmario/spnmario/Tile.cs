@@ -18,6 +18,13 @@ namespace spnmario
     {
         public Texture2D dirt;
         public Rectangle rect;
+        public enum TType
+        {
+            air,
+            ground,
+            misha,
+        }
+        protected TType type;
         public bool isSolid //accesses drawme
         {
             get
@@ -33,6 +40,38 @@ namespace spnmario
             dirt = asset;
             rect = r;
             drawme = solid;
+            if (solid)
+            {
+                type = TType.ground;
+            }
+            else 
+            {
+                type = TType.air;
+            }
+        }
+
+        //advanced constructor
+        public Tile(Rectangle r, Texture2D asset, Int16 i)
+        {
+            dirt = asset;
+            rect = r;
+            switch (i)
+            {
+                default:
+                    type = TType.air;
+                    drawme = false;
+                    break;
+
+                case 1:
+                    type = TType.ground;
+                    drawme = true;
+                    break;
+
+                case 2:
+                    type = TType.misha;
+                    drawme = true;
+                    break;
+            }
         }
 
         //empty constructor
@@ -50,9 +89,15 @@ namespace spnmario
         //Draws if you can't be here.
         public void Draw(SpriteBatch theSB)
         {
-            if (drawme)
-            {
-                theSB.Draw(dirt, rect, Color.White);
+            switch (type){
+                default:
+                    break;
+                case TType.ground:
+                    theSB.Draw(dirt, rect, new Rectangle(0,0,80,80), Color.White);
+                    break;
+                case TType.misha:
+                    theSB.Draw(dirt, rect, new Rectangle(80,0,80,80), Color.White);
+                    break;
             }
         }
     }

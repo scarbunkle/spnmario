@@ -4,3 +4,4 @@ Content\tile.xnb
 Content\Title Slide.xnb
 Content\winscreen.xnb
 Content\track.xnb
+Content\TileAssetSheet.xnb

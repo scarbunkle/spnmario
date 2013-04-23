@@ -33,7 +33,7 @@ namespace spnmario
             return vals;
         }
         //reads a CSV into a bool[,]
-        public static bool[,] getLevel(string s)
+        public static bool[,] getBasicLevel(string s)
         {
             String[,] raw = readCSV(s);
             bool[,] bools = new bool[raw.GetLength(0), raw.GetLength(1)];
@@ -45,6 +45,33 @@ namespace spnmario
                 }
             }
             return bools;
+        }
+        public static Int16[,] getLevel(string s)
+        {
+            String[,] raw = readCSV(s);
+            Int16[,] ints = new Int16[raw.GetLength(0), raw.GetLength(1)];
+            for (int i = 0; i < ints.GetLength(0); i++)
+            {
+                for (int j = 0; j < ints.GetLength(1); j++)
+                {
+                    try
+                    {
+                        ints[i, j] = Convert.ToInt16(raw[i, j]);
+                    }
+                    catch
+                    {
+                        if (raw[i, j] == "true")
+                        {
+                            ints[i, j] = 1;
+                        }
+                        else
+                        {
+                            ints[i, j] = 0;
+                        }
+                    }
+                }
+            }
+            return ints;
         }
 
     }
