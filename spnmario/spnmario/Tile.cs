@@ -34,22 +34,6 @@ namespace spnmario
         }
         protected bool drawme; //controls whether it's drawn/solid
 
-        //constructor
-        public Tile(Rectangle r, Texture2D asset, bool solid)
-        {
-            dirt = asset;
-            rect = r;
-            drawme = solid;
-            if (solid)
-            {
-                type = TType.ground;
-            }
-            else 
-            {
-                type = TType.air;
-            }
-        }
-
         //advanced constructor
         public Tile(Rectangle r, Texture2D asset, Int16 i)
         {

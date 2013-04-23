@@ -28,18 +28,6 @@ namespace spnmario
         protected int length;
         protected int height;
         
-        //Constructor
-        public Level(Texture2D dirt, bool[,] vals){
-            height = vals.GetLength(0);
-            length = vals.GetLength(1);
-            tL = new Tile[height, length];
-            for (int i = 0; i<height; i++){
-                for (int j = 0; j<length; j++){
-                    tL[i,j]= new Tile(new Rectangle(80*j, 80*i, 80, 80), dirt, vals[i,j]);
-                }
-            }
-        }
-
         //advanced constructor
         public Level(Texture2D dirt, Int16[,] vals)
         {

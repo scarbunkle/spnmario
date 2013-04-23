@@ -32,7 +32,8 @@ namespace spnmario
             
             return vals;
         }
-        //reads a CSV into a bool[,]
+
+        //reads a CSV into a bool[,], deprecated
         public static bool[,] getBasicLevel(string s)
         {
             String[,] raw = readCSV(s);
@@ -46,6 +47,8 @@ namespace spnmario
             }
             return bools;
         }
+
+        //reads csv into an int16, also supports bool-based legacy levels.  
         public static Int16[,] getLevel(string s)
         {
             String[,] raw = readCSV(s);

@@ -84,7 +84,7 @@ namespace spnmario
         //used to reset at death
         public void LoadLevel()
         {
-            samplelevel = new Level(Content.Load<Texture2D>("tile"), CSVRead.getBasicLevel(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\sample2.csv"));
+            samplelevel = new Level(Content.Load<Texture2D>("TileAssetSheet"), CSVRead.getLevel(@"C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmarioContent\sample2.csv"));
             dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
         }
         /// <summary>
