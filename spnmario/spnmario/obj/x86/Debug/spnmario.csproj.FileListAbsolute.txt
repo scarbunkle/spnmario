@@ -31,3 +31,4 @@ C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\obj\x86\De
 C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\obj\x86\Debug\spnmario.exe
 C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\obj\x86\Debug\spnmario.pdb
+C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\TileAssetSheet.xnb
