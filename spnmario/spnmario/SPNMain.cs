@@ -20,6 +20,12 @@ namespace spnmario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        /** MAGIC NUMBERS SECTION*/
+        public static int gameHeight=720;
+        public static int gameWidth = 1280;
+        public static int dudeHeight = 70;
+        public static int dudeWidth = 53;
+
         //Dude is our Character.  
         Dude dude;
         //Level as a class lets us keep all the yucky for-loops of our Main.
@@ -43,8 +49,8 @@ namespace spnmario
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = 720;
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = gameHeight;
+            graphics.PreferredBackBufferWidth = gameWidth;
             Content.RootDirectory = "Content";
         }
 
@@ -74,18 +80,17 @@ namespace spnmario
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
             win = Content.Load<Texture2D>("winscreen");
-            samplelevel = new Level(Content.Load<Texture2D>("TileAssetSheet"), CSVRead.getLevel(@"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv"));
-            dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
+            LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "char");
             sound = Content.Load<SoundEffect>("track");
             song = sound.CreateInstance();
             song.IsLooped = true;
         }
 
-        //used to reset at death
-        public void LoadLevel()
+        //used to load a level
+        public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
-            samplelevel = new Level(Content.Load<Texture2D>("TileAssetSheet"), CSVRead.getLevel(@"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv"));
-            dude = new Dude(new Rectangle(200, 500, 53, 70), Content.Load<Texture2D>("char"));
+            samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
+            dude = new Dude(new Rectangle(200, 500, dudeWidth, dudeHeight), Content.Load<Texture2D>(charAssetSheet));
         }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -113,13 +118,13 @@ namespace spnmario
                     song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
-                    if (dude.web.area.X > 1000) //allows death
+                    if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory
                     {
                         showing = Display.End;
                     }
-                    if (dude.web.area.Y > 720) //Allows victory
+                    if (dude.web.area.Y > gameHeight) //Allows death
                     {
-                        LoadLevel();
+                        LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "char");
                     }
                  break;
                 case Display.Title: //start screen

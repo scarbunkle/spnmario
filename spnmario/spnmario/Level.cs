@@ -17,6 +17,7 @@ namespace spnmario
      * logic.  Not sure how yet, though.*/
     public class Level
     {
+        public static int tileSide = 80;
         protected Tile[,] tL;
         public Tile[,] theLevel
         {
@@ -38,7 +39,7 @@ namespace spnmario
             {
                 for (int j = 0; j < length; j++)
                 {
-                    tL[i, j] = new Tile(new Rectangle(80 * j, 80 * i, 80, 80), dirt, vals[i, j]);
+                    tL[i, j] = new Tile(new Rectangle(tileSide * j, tileSide * i, tileSide, tileSide), dirt, vals[i, j]);
                 }
             }
         }

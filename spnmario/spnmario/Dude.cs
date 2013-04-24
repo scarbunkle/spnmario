@@ -77,7 +77,7 @@ namespace spnmario
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,W.points[0]) || Interaction.isColliding(l, W.points[5])))
             {
-                if (W.area.X < 450 && l.theLevel[0, 0].rect.X < 0)
+                if (W.area.X < Game1.gameWidth/4 && l.theLevel[0, 0].rect.X < 0)
                 {
                     foreach (Tile t in l.theLevel)
                     {
@@ -92,7 +92,7 @@ namespace spnmario
             if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, W.points[1]) || Interaction.isColliding(l, W.points[2])))
             {
 
-                if (W.area.X > 600 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > 1200)
+                if (W.area.X > Game1.gameWidth/2 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > Game1.gameWidth-Level.tileSide)
                 {
                     foreach (Tile t in l.theLevel)
                     {
@@ -108,7 +108,7 @@ namespace spnmario
             { 
                 if (!(Interaction.isColliding(l,W.points[0])||Interaction.isColliding(l,W.points[1])))
                 {
-                    W.area.Y -= 15; 
+                    W.area.Y -= 12; 
                 }
             }
         }
@@ -124,10 +124,7 @@ namespace spnmario
             }
             else if (Interaction.isColliding(l, W.points[4]) || Interaction.isColliding(l, W.points[3]))
             {
-                
-                    Console.Out.WriteLine("Fixin Shit");
                     W.area.Y = Interaction.inTile(l, W.points[3]).rect.Y - W.area.Height;
-                
             }
 
             onGround = Interaction.isColliding(l, W.points[3]) || Interaction.isColliding(l, W.points[4]);

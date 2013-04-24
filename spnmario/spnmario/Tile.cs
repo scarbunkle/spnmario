@@ -77,10 +77,10 @@ namespace spnmario
                 default:
                     break;
                 case TType.ground:
-                    theSB.Draw(dirt, rect, new Rectangle(0,0,80,80), Color.White);
+                    theSB.Draw(dirt, rect, new Rectangle(0,0,Level.tileSide,Level.tileSide), Color.White);
                     break;
                 case TType.misha:
-                    theSB.Draw(dirt, rect, new Rectangle(80,0,80,80), Color.White);
+                    theSB.Draw(dirt, rect, new Rectangle(Level.tileSide,0,Level.tileSide,Level.tileSide), Color.White);
                     break;
             }
         }
