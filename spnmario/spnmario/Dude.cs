@@ -14,18 +14,9 @@ namespace spnmario
      * fun logic, handling animation, as well as who you're playing 
      * as.  It also handles some mechanics of collision logic, but 
      * some get passed off to InteractionsManager and CollisionWeb.*/
-    public class Dude
+    public class Dude : Sprite
     {
-        protected Texture2D CharacterAssetSheet;
-        public CollisionWeb web //reads W
-        {
-            get
-            {
-                return W;
-            }
-        }
-
-        protected CollisionWeb W;//contains Draw rectangle and collision points
+        
         //This enum's for ater use--allows only one asset sheet overall.
         public enum PlayingAs
         {
@@ -41,7 +32,7 @@ namespace spnmario
         //constructor
         public Dude(Rectangle r, Texture2D asset)
         {
-            CharacterAssetSheet = asset;
+            AssetSheet = asset;
             W = new CollisionWeb(r);
             
         }
@@ -67,9 +58,9 @@ namespace spnmario
         }
 
         //draw
-        public void Draw(SpriteBatch theSB)
+        public override void Draw(SpriteBatch theSB)
         {
-            theSB.Draw(CharacterAssetSheet, W.area, Color.White);
+            base.Draw(theSB);
         }
 
         /*Handles movement involving listeners*/

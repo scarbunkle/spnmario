@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkpoint.cs" />
+    <Compile Include="Sprite.cs" />
     <Compile Include="CSVRead.cs" />
     <Compile Include="CollisionWeb.cs" />
     <Compile Include="InteractionsManager.cs" />
