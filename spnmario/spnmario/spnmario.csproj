@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkpoint.cs" />
+    <None Include="Death.cs" />
+    <Compile Include="SpIRIT.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="CSVRead.cs" />
     <Compile Include="CollisionWeb.cs" />

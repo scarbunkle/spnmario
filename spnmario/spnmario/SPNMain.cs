@@ -80,7 +80,7 @@ namespace spnmario
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
             win = Content.Load<Texture2D>("winscreen");
-            LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "char");
+            LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
             sound = Content.Load<SoundEffect>("track");
             song = sound.CreateInstance();
             song.IsLooped = true;
