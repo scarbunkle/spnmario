@@ -50,18 +50,12 @@ namespace spnmario
         public void Update(Level l, GameTime gameTime)
         {
             
-
-
-
             //Gravity: makes gravity happen
             if (!(onGround))
             {
                 W.area.Y += (int)(.3* Math.Abs(airTime));
             }
-            
-            
-            //Movement(l); //runs listeners and handles x/y positioning.
-            W.pointsUpdate();
+            base.Update();
             airTimeManagement(l, gameTime);
             
         }
@@ -95,6 +89,17 @@ namespace spnmario
             onGround = Interaction.isColliding(l, W.points[3]) || Interaction.isColliding(l, W.points[4]);
 
             airTime++;
+        }
+
+        public override void moveLeft(int i)
+        {
+            W.area.X -= i;
+        }
+
+        public override void moveRight(int i)
+        {
+            W.area.X += i;
+            Console.Out.WriteLine("dude overriding");
         }
     }
 }

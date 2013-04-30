@@ -28,7 +28,7 @@ namespace spnmario
 
         //Dude is our Character.  
         Dude dude;
-        SpIRIT spirit;
+        Sprite[] mobs;
         //Level as a class lets us keep all the yucky for-loops of our Main.
         Level samplelevel;
         //This switches between screens/levels  BFD.
@@ -82,7 +82,8 @@ namespace spnmario
             // TODO: use this.Content to load your game content here
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
-            spirit = new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(2000, 200, dudeHeight, dudeWidth), new Checkpoint(2000, 200));
+            mobs = new Sprite[] {new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(2000, 200, dudeHeight, dudeWidth), new Checkpoint(2000, 200))};
+            Console.Out.WriteLine(mobs.Length);
             win = Content.Load<Texture2D>("winscreen");
             LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
             sound = Content.Load<SoundEffect>("track");
@@ -122,7 +123,13 @@ namespace spnmario
                     //song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
-                    listeners.Update(dude, new Sprite[0], samplelevel);
+                    listeners.Update(dude, mobs, samplelevel);
+                    //attempt to update mobs
+                    foreach (Sprite s in mobs)
+                    {
+                        s.Update();
+                    }
+
                     if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory
                     {
                         showing = Display.End;
@@ -158,6 +165,9 @@ namespace spnmario
                 case Display.Play:
                     samplelevel.Draw(spriteBatch);
                     dude.Draw(spriteBatch);
+                    foreach (Sprite s in mobs){
+                        s.Draw(spriteBatch);
+                    }
                     break;
                 case Display.Title:
                     spriteBatch.Draw(title, new Vector2(0, 0), Color.White);

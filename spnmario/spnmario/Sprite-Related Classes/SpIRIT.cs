@@ -47,19 +47,20 @@ namespace spnmario
 
         /** Inactive Movement will be coded into the supermethod in the dude:sprite for now--An 
          * independent Listener class needs to exist to handle movements.*/
-        public void moveLeft(int i)
+        public override void moveLeft(int i)
         {
             W.area.X -= i;
-            W.pointsUpdate();
+            point.x -= i;
         }
 
-        public void moveRight(int i)
+        public override void moveRight(int i)
         {
             W.area.X += i;
-            W.pointsUpdate();
+            point.x += i;
+            Console.Out.WriteLine("overriding");
         }
 
-        public void Update(Dude d)
+        public override void Update(Dude d)
         {
             if (isActive)
             {
@@ -83,6 +84,7 @@ namespace spnmario
                     W.area.Y += (int)(onScreenSpeed * (float)Math.Sin(angle));
                 }
             }
+            base.Update();
             
         }
     }

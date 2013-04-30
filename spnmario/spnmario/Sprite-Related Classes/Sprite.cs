@@ -34,6 +34,16 @@ namespace spnmario
         {
         }
 
+        public virtual void Update()
+        {
+            W.pointsUpdate();
+        }
+
+        public virtual void Update(Dude d)
+        {
+            Update();
+        }
+
         public virtual void Draw(SpriteBatch theSB, Rectangle source){
             theSB.Draw(AssetSheet, web.area, source, Color.White);
         }
@@ -42,14 +52,15 @@ namespace spnmario
             theSB.Draw(AssetSheet, web.area, Color.White);
         }
 
-        public void moveLeft(int i)
+        public virtual void moveLeft(int i)
         {
             W.area.X -= i;
         }
 
-        public void moveRight(int i)
+        public virtual void moveRight(int i)
         {
             W.area.X += i;
+            Console.Out.WriteLine("Using Sprite");
         }
     }
 }
