@@ -28,6 +28,15 @@ namespace spnmario
         //variables for collision logic
         protected bool onGround;
         protected int airTime;//time in air
+        //Speed of travel
+        protected static int dSpeed = 5;
+        public static int speed
+        {
+            get
+            {
+                return dSpeed;
+            }
+        }
         
         //constructor
         public Dude(Rectangle r, Texture2D asset)
@@ -51,7 +60,7 @@ namespace spnmario
             }
             
             
-            Movement(l); //runs listeners and handles x/y positioning.
+            //Movement(l); //runs listeners and handles x/y positioning.
             W.pointsUpdate();
             airTimeManagement(l, gameTime);
             
@@ -63,45 +72,10 @@ namespace spnmario
             base.Draw(theSB);
         }
 
-        /*Handles movement involving listeners*/
-        public void Movement(Level l)
-        {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,W.points[0]) || Interaction.isColliding(l, W.points[5])))
-            {
-                if (W.area.X < Game1.gameWidth/4 && l.theLevel[0, 0].rect.X < 0)
-                {
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X += 5;
-                    }
-                }
-                else
-                {
-                    W.area.X -= 5;
-                }
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, W.points[1]) || Interaction.isColliding(l, W.points[2])))
-            {
 
-                if (W.area.X > Game1.gameWidth/2 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > Game1.gameWidth-Level.tileSide)
-                {
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X -= 5;
-                    }
-                }
-                else
-                {
-                    W.area.X += 5;
-                }
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            { 
-                if (!(Interaction.isColliding(l,W.points[0])||Interaction.isColliding(l,W.points[1])))
-                {
-                    W.area.Y -= 12; 
-                }
-            }
+        public void Jump(int i)
+        {
+            W.area.Y -= i;
         }
 
         //handles ground collisions, airtime, and landingfix

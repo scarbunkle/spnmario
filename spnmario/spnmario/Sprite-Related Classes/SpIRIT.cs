@@ -83,6 +83,7 @@ namespace spnmario
                     W.area.Y += (int)(onScreenSpeed * (float)Math.Sin(angle));
                 }
             }
+            
         }
     }
 

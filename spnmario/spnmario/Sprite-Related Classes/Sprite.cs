@@ -41,5 +41,15 @@ namespace spnmario
         public virtual void Draw(SpriteBatch theSB){
             theSB.Draw(AssetSheet, web.area, Color.White);
         }
+
+        public void moveLeft(int i)
+        {
+            W.area.X -= i;
+        }
+
+        public void moveRight(int i)
+        {
+            W.area.X += i;
+        }
     }
 }
