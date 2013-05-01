@@ -52,7 +52,7 @@ namespace spnmario
                     //move non-dude sprites right dSpeed
                     foreach (Sprite sp in s)
                     {
-                        Console.Out.WriteLine("in loop");
+                        
                         sp.moveRight(Dude.speed);
                     }
                 }
@@ -76,8 +76,7 @@ namespace spnmario
                     //move non-dude sprites left dspeed
                     foreach (Sprite sp in s)
                     {
-                        sp.moveLeft(Dude.speed);
-                        
+                            sp.moveLeft(Dude.speed);
                     }
                 }
             }

@@ -43,6 +43,7 @@ namespace spnmario
         public void Activate()
         {
             isActive = true;
+            Console.Out.WriteLine("Active");
         }
 
         /** Inactive Movement will be coded into the supermethod in the dude:sprite for now--An 
@@ -51,17 +52,23 @@ namespace spnmario
         {
             W.area.X -= i;
             point.x -= i;
+            Console.Out.WriteLine(triggerpoint.x);
         }
 
         public override void moveRight(int i)
         {
             W.area.X += i;
             point.x += i;
-            Console.Out.WriteLine("overriding");
+
+            Console.Out.WriteLine(triggerpoint.x);
         }
 
         public override void Update(Dude d)
         {
+            if (triggerpoint.x < d.web.area.X)
+            {
+                Activate();
+            }
             if (isActive)
             {
                 if (W.area.X < 0 - W.area.Width)
@@ -84,8 +91,16 @@ namespace spnmario
                     W.area.Y += (int)(onScreenSpeed * (float)Math.Sin(angle));
                 }
             }
+
             base.Update();
             
+        }
+        public override void Draw(SpriteBatch theSB)
+        {
+            if (isActive)
+            {
+                base.Draw(theSB);
+            }
         }
     }
 

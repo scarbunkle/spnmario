@@ -127,7 +127,7 @@ namespace spnmario
                     //attempt to update mobs
                     foreach (Sprite s in mobs)
                     {
-                        s.Update();
+                        s.Update(dude);
                     }
 
                     if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory

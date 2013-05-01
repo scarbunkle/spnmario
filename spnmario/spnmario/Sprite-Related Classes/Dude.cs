@@ -99,7 +99,6 @@ namespace spnmario
         public override void moveRight(int i)
         {
             W.area.X += i;
-            Console.Out.WriteLine("dude overriding");
         }
     }
 }

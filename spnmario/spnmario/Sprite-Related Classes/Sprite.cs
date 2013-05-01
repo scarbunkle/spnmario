@@ -55,6 +55,7 @@ namespace spnmario
         public virtual void moveLeft(int i)
         {
             W.area.X -= i;
+            Console.Out.WriteLine("Using Sprite");
         }
 
         public virtual void moveRight(int i)
