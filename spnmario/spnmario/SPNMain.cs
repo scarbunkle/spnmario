@@ -82,8 +82,6 @@ namespace spnmario
             // TODO: use this.Content to load your game content here
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
-            mobs = new Sprite[] {new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(2000, 200, dudeHeight, dudeWidth), new Checkpoint(2000, 200))};
-            Console.Out.WriteLine(mobs.Length);
             win = Content.Load<Texture2D>("winscreen");
             LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
             sound = Content.Load<SoundEffect>("track");
@@ -96,6 +94,7 @@ namespace spnmario
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
             dude = new Dude(new Rectangle(200, 500, dudeWidth, dudeHeight), Content.Load<Texture2D>(charAssetSheet));
+            mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
