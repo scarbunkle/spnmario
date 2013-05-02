@@ -81,7 +81,7 @@ namespace spnmario
                     deltaX = d.web.area.X - W.area.X;
                     angle = Math.Atan2(deltaY, deltaX);
                     ++randomDelay;
-                    if (randomDelay > 100)
+                    if (randomDelay > 40)
                     {
                         randomAngle = (extendedRanAngle.Next((int)((Math.PI / 2) * 1000)) / 1000.0 - (Math.PI / 4));
                         randomDelay = 0;
