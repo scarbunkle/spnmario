@@ -93,7 +93,7 @@ namespace spnmario
         public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
-            dude = new Dude(new Rectangle(200, 500, dudeWidth, dudeHeight), Content.Load<Texture2D>(charAssetSheet));
+            dude = new Dude(Content.Load<Texture2D>(charAssetSheet), new Rectangle(200, 500, dudeWidth, dudeHeight), 1);
             mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>
@@ -126,7 +126,7 @@ namespace spnmario
                     //attempt to update mobs
                     foreach (Sprite s in mobs)
                     {
-                        s.Update(dude);
+                        s.Update(dude, gameTime);
                     }
 
                     if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory

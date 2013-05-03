@@ -63,7 +63,7 @@ namespace spnmario
             Console.Out.WriteLine(triggerpoint.x);
         }
 
-        public override void Update(Dude d)
+        public override void Update(Dude d, GameTime gameTime)
         {
             if (triggerpoint.x < d.web.area.X)
             {
@@ -92,7 +92,7 @@ namespace spnmario
                 }
             }
 
-            base.Update();
+            base.Update(gameTime);
             
         }
         public override void Draw(SpriteBatch theSB)

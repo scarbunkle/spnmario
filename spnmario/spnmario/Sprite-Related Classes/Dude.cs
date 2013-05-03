@@ -39,11 +39,11 @@ namespace spnmario
         }
         
         //constructor
-        public Dude(Rectangle r, Texture2D asset)
+        public Dude(Texture2D a, Rectangle r, int i):base(a, r, i)
         {
-            AssetSheet = asset;
-            W = new CollisionWeb(r);
-            
+            onGround = false;
+            frames = i;
+            animationSpeed = 200;
         }
 
         //update loop
@@ -55,7 +55,7 @@ namespace spnmario
             {
                 W.area.Y += (int)(.3* Math.Abs(airTime));
             }
-            base.Update();
+            base.Update(gameTime);
             airTimeManagement(l, gameTime);
             
         }
