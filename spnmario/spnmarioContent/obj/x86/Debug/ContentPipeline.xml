@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\char.xnb</Output>
-      <Time>2013-04-22T23:34:06.2339911-04:00</Time>
+      <Time>2013-05-07T23:35:13.7365704-04:00</Time>
     </Item>
     <Item>
       <Source>mishapocalypse.jpg</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\mishapocalypse.xnb</Output>
-      <Time>2013-04-22T23:34:06.234991-04:00</Time>
+      <Time>2013-05-07T23:35:13.7405706-04:00</Time>
     </Item>
     <Item>
       <Source>tile.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\tile.xnb</Output>
-      <Time>2013-04-22T23:34:06.2403726-04:00</Time>
+      <Time>2013-05-07T23:35:13.7885733-04:00</Time>
     </Item>
     <Item>
       <Source>Title Slide.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Title Slide.xnb</Output>
-      <Time>2013-04-22T23:34:06.2329913-04:00</Time>
+      <Time>2013-05-07T23:35:13.7355703-04:00</Time>
     </Item>
     <Item>
       <Source>winscreen.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\winscreen.xnb</Output>
-      <Time>2013-04-22T23:34:06.6844651-04:00</Time>
+      <Time>2013-05-07T23:35:17.7938024-04:00</Time>
     </Item>
     <Item>
       <Source>TileAssetSheet.png</Source>
@@ -53,16 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\TileAssetSheet.xnb</Output>
-      <Time>2013-04-22T23:34:06.2329913-04:00</Time>
-    </Item>
-    <Item>
-      <Source>track.wav</Source>
-      <Name>track</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\track.xnb</Output>
-      <Time>2013-04-22T23:34:06.6794653-04:00</Time>
+      <Time>2013-05-07T23:35:13.7325701-04:00</Time>
     </Item>
     <Item>
       <Source>samoosedraft.png</Source>
@@ -71,7 +62,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\samoosedraft.xnb</Output>
-      <Time>2013-04-23T22:07:56.1073842-04:00</Time>
+      <Time>2013-05-07T23:35:13.7775727-04:00</Time>
+    </Item>
+    <Item>
+      <Source>track.wav</Source>
+      <Name>track</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\track.xnb</Output>
+      <Time>2013-05-07T23:35:17.7828018-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -87,31 +87,31 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T16:41:18-04:00</Value>
+        <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-01-23T19:33:04.3832431-05:00</Value>
+        <Value>2012-10-21T19:57:38.4270814-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
