@@ -23,8 +23,8 @@ namespace spnmario
         /** MAGIC NUMBERS SECTION*/
         public static int gameHeight=720;
         public static int gameWidth = 1280;
-        public static int dudeHeight = 70;
-        public static int dudeWidth = 53;
+        public static int dudeHeight = 538/4;
+        public static int dudeWidth = 733/4;
 
         //Dude is our Character.  
         Dude dude;
@@ -93,7 +93,7 @@ namespace spnmario
         public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
-            dude = new Dude(Content.Load<Texture2D>(charAssetSheet), new Rectangle(200, 500, dudeWidth, dudeHeight), 1);
+            dude = new Dude(Content.Load<Texture2D>("anitest"), new Rectangle(200, 500, dudeWidth, dudeHeight), 4);
             mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>

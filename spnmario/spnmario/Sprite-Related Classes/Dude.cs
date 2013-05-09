@@ -63,7 +63,7 @@ namespace spnmario
         //draw
         public override void Draw(SpriteBatch theSB)
         {
-            base.Draw(theSB);
+            base.Draw(theSB, sourceRectangles[activesource]);
         }
 
 

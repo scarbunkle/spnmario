@@ -38,7 +38,7 @@ namespace spnmario
             sourceRectangles = new Rectangle[i];
             for (int j =0; j<i; j++)
             {
-                sourceRectangles[j] = new Rectangle(j, 0, r.Width, r.Height);
+                sourceRectangles[j] = new Rectangle(j*r.Width, 0, r.Width, r.Height);
             }
             activesource = 0;
         }
