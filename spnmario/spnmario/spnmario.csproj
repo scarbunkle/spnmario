@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sprite-Related Classes\Checkpoint.cs" />
-    <None Include="Death.cs" />
+    <None Include="Copy-pasta classes\Death.cs" />
     <Compile Include="ListenerManager.cs" />
     <Compile Include="Sprite-Related Classes\SpIRIT.cs" />
     <Compile Include="Sprite-Related Classes\Sprite.cs" />

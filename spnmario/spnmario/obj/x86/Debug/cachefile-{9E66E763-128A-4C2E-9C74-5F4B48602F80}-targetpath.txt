@@ -5,5 +5,5 @@ Content\Title Slide.xnb
 Content\winscreen.xnb
 Content\TileAssetSheet.xnb
 Content\samoosedraft.xnb
-Content\track.xnb
 Content\anitest.xnb
+Content\track.xnb

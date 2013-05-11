@@ -83,7 +83,7 @@ namespace spnmario
             //jump management
             if (currentstate.IsKeyDown(Keys.Space))
             {
-                if (!(Interaction.isColliding(l, d.web.points[0]) || Interaction.isColliding(l, d.web.points[1])))
+                if (!(Interaction.isColliding(l, d.web.points[6]) || Interaction.isColliding(l, d.web.points[7])))
                 {
                     d.Jump(12);//dude up 12
                 }
