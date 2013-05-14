@@ -49,14 +49,16 @@ namespace spnmario
         //update loop
         public void Update(Level l, GameTime gameTime)
         {
+            Console.Out.WriteLine(airTime);
             
             //Gravity: makes gravity happen
             if (!(onGround))
             {
                 W.area.Y += (int)(.3* Math.Abs(airTime));
             }
-            base.Update(gameTime);
             airTimeManagement(l, gameTime);
+            W.pointsUpdate();
+            
             
         }
 
@@ -91,14 +93,19 @@ namespace spnmario
             airTime++;
         }
 
-        public override void moveLeft(int i)
+        public void moveLeft(int i)
         {
             W.area.X -= i;
         }
 
-        public override void moveRight(int i)
+        public void moveRight(int i)
         {
             W.area.X += i;
+        }
+
+        public void animate(GameTime gameTime)
+        {
+            base.Update(gameTime);
         }
     }
 }

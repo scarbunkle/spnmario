@@ -14,9 +14,9 @@ namespace spnmario
     /**handles Listener Related movements*/
     public class ListenerManager
     {
-        protected KeyboardState laststate;
-        protected KeyboardState currentstate;
-        public KeyboardState keyState
+        protected static KeyboardState laststate;
+        protected static KeyboardState currentstate;
+        public static KeyboardState keyState
         {
             get
             {
@@ -28,7 +28,7 @@ namespace spnmario
             currentstate = Keyboard.GetState();
         }
 
-        public void Update(Dude d, Sprite[] s, Level l){
+        public void Update(Dude d, Sprite[] s, Level l, GameTime gameTime){
             //Updates current and last states
             laststate = currentstate;
             currentstate = Keyboard.GetState();
@@ -36,6 +36,7 @@ namespace spnmario
             //left movement
             if (currentstate.IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,d.web.points[0]) || Interaction.isColliding(l, d.web.points[5])))
             {
+                d.animate(gameTime);
                 //simple move for range > gamewidth/4 and endpoint
                 if (!(d.web.area.X < Game1.gameWidth / 4 && l.theLevel[0, 0].rect.X < 0))
                 {
@@ -60,6 +61,7 @@ namespace spnmario
             //right movement
             if (currentstate.IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, d.web.points[1]) || Interaction.isColliding(l, d.web.points[2])))
             {
+                d.animate(gameTime);
                 //Simple move for range < gamewidth/2 and endpoint
                 if (!(d.web.area.X > Game1.gameWidth / 2 && l.theLevel[l.theLevel.GetLength(0) - 1, l.theLevel.GetLength(1) - 1].rect.X > Game1.gameWidth - Level.tileSide))
                 {
@@ -86,6 +88,7 @@ namespace spnmario
                 if (!(Interaction.isColliding(l, d.web.points[6]) || Interaction.isColliding(l, d.web.points[7])))
                 {
                     d.Jump(12);//dude up 12
+                    d.animate(gameTime);
                 }
             }
         }

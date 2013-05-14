@@ -122,7 +122,7 @@ namespace spnmario
                     //song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
-                    listeners.Update(dude, mobs, samplelevel);
+                    listeners.Update(dude, mobs, samplelevel, gameTime);
                     //attempt to update mobs
                     foreach (Sprite s in mobs)
                     {
