@@ -32,7 +32,7 @@ namespace spnmario
         public CollisionWeb(Rectangle r)
         {
             area = r;
-            p = new Checkpoint[6];
+            p = new Checkpoint[8];
             for (int i = 0; i<points.Length; i++)
             {
                 p[i]=new Checkpoint(0,0);
@@ -52,6 +52,8 @@ namespace spnmario
                 p[3].Update(area.X + area.Width - 5, area.Y + area.Height);
                 p[4].Update(area.X + 5, area.Y + area.Height);
                 p[5].Update(area.X, area.Y + area.Height - 5);
+                p[6].Update(area.X + 5, area.Y);
+                p[7].Update(area.X + area.Width - 5, area.Y);
             }
         }
     }

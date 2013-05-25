@@ -23,11 +23,12 @@ namespace spnmario
         /** MAGIC NUMBERS SECTION*/
         public static int gameHeight=720;
         public static int gameWidth = 1280;
-        public static int dudeHeight = 70;
-        public static int dudeWidth = 53;
+        public static int dudeHeight = 538/4;
+        public static int dudeWidth = 733/4;
 
         //Dude is our Character.  
         Dude dude;
+        Sprite[] mobs;
         //Level as a class lets us keep all the yucky for-loops of our Main.
         Level samplelevel;
         //This switches between screens/levels  BFD.
@@ -45,6 +46,7 @@ namespace spnmario
         SoundEffect sound; 
         SoundEffectInstance song;
 
+        ListenerManager listeners;
 
         public Game1()
         {
@@ -65,6 +67,7 @@ namespace spnmario
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            listeners = new ListenerManager();
         }
 
         /// <summary>
@@ -90,7 +93,8 @@ namespace spnmario
         public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
-            dude = new Dude(new Rectangle(200, 500, dudeWidth, dudeHeight), Content.Load<Texture2D>(charAssetSheet));
+            dude = new Dude(Content.Load<Texture2D>("anitest"), new Rectangle(200, 500, dudeWidth, dudeHeight), 4);
+            mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -115,16 +119,23 @@ namespace spnmario
             // TODO: Add your update logic here
             switch (showing){
                 case Display.Play: //runs the game proper
-                    song.Play();
+                    //song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
+                    listeners.Update(dude, mobs, samplelevel, gameTime);
+                    //attempt to update mobs
+                    foreach (Sprite s in mobs)
+                    {
+                        s.Update(dude, gameTime);
+                    }
+
                     if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory
                     {
                         showing = Display.End;
                     }
                     if (dude.web.area.Y > gameHeight) //Allows death
                     {
-                        LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "char");
+                        LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
                     }
                  break;
                 case Display.Title: //start screen
@@ -153,6 +164,9 @@ namespace spnmario
                 case Display.Play:
                     samplelevel.Draw(spriteBatch);
                     dude.Draw(spriteBatch);
+                    foreach (Sprite s in mobs){
+                        s.Draw(spriteBatch);
+                    }
                     break;
                 case Display.Title:
                     spriteBatch.Draw(title, new Vector2(0, 0), Color.White);

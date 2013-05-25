@@ -28,80 +28,50 @@ namespace spnmario
         //variables for collision logic
         protected bool onGround;
         protected int airTime;//time in air
+        //Speed of travel
+        protected static int dSpeed = 5;
+        public static int speed
+        {
+            get
+            {
+                return dSpeed;
+            }
+        }
         
         //constructor
-        public Dude(Rectangle r, Texture2D asset)
+        public Dude(Texture2D a, Rectangle r, int i):base(a, r, i)
         {
-            AssetSheet = asset;
-            W = new CollisionWeb(r);
-            
+            onGround = false;
+            frames = i;
+            animationSpeed = 200;
         }
 
         //update loop
         public void Update(Level l, GameTime gameTime)
         {
+            Console.Out.WriteLine(airTime);
             
-
-
-
             //Gravity: makes gravity happen
             if (!(onGround))
             {
                 W.area.Y += (int)(.3* Math.Abs(airTime));
             }
-            
-            
-            Movement(l); //runs listeners and handles x/y positioning.
-            W.pointsUpdate();
             airTimeManagement(l, gameTime);
+            W.pointsUpdate();
+            
             
         }
 
         //draw
         public override void Draw(SpriteBatch theSB)
         {
-            base.Draw(theSB);
+            base.Draw(theSB, sourceRectangles[activesource]);
         }
 
-        /*Handles movement involving listeners*/
-        public void Movement(Level l)
-        {
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,W.points[0]) || Interaction.isColliding(l, W.points[5])))
-            {
-                if (W.area.X < Game1.gameWidth/4 && l.theLevel[0, 0].rect.X < 0)
-                {
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X += 5;
-                    }
-                }
-                else
-                {
-                    W.area.X -= 5;
-                }
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, W.points[1]) || Interaction.isColliding(l, W.points[2])))
-            {
 
-                if (W.area.X > Game1.gameWidth/2 && l.theLevel[l.theLevel.GetLength(0)-1, l.theLevel.GetLength(1)-1].rect.X > Game1.gameWidth-Level.tileSide)
-                {
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X -= 5;
-                    }
-                }
-                else
-                {
-                    W.area.X += 5;
-                }
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            { 
-                if (!(Interaction.isColliding(l,W.points[0])||Interaction.isColliding(l,W.points[1])))
-                {
-                    W.area.Y -= 12; 
-                }
-            }
+        public void Jump(int i)
+        {
+            W.area.Y -= i;
         }
 
         //handles ground collisions, airtime, and landingfix
@@ -121,6 +91,21 @@ namespace spnmario
             onGround = Interaction.isColliding(l, W.points[3]) || Interaction.isColliding(l, W.points[4]);
 
             airTime++;
+        }
+
+        public void moveLeft(int i)
+        {
+            W.area.X -= i;
+        }
+
+        public void moveRight(int i)
+        {
+            W.area.X += i;
+        }
+
+        public void animate(GameTime gameTime)
+        {
+            base.Update(gameTime);
         }
     }
 }

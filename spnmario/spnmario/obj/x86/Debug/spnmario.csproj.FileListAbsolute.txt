@@ -34,3 +34,4 @@ C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\obj\x86\De
 C:\Users\Sarah\Documents\GitHub\spnmariopreprealpha\spnmario\spnmario\bin\x86\Debug\Content\TileAssetSheet.xnb
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\TileAssetSheet.xnb
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\samoosedraft.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\anitest.xnb

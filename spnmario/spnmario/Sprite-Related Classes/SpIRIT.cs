@@ -43,24 +43,32 @@ namespace spnmario
         public void Activate()
         {
             isActive = true;
+            Console.Out.WriteLine("Active");
         }
 
         /** Inactive Movement will be coded into the supermethod in the dude:sprite for now--An 
          * independent Listener class needs to exist to handle movements.*/
-        public void moveLeft(int i)
+        public override void moveLeft(int i)
         {
             W.area.X -= i;
-            W.pointsUpdate();
+            point.x -= i;
+            Console.Out.WriteLine(triggerpoint.x);
         }
 
-        public void moveRight(int i)
+        public override void moveRight(int i)
         {
             W.area.X += i;
-            W.pointsUpdate();
+            point.x += i;
+
+            Console.Out.WriteLine(triggerpoint.x);
         }
 
-        public void Update(Dude d)
+        public override void Update(Dude d, GameTime gameTime)
         {
+            if (triggerpoint.x < d.web.area.X)
+            {
+                Activate();
+            }
             if (isActive)
             {
                 if (W.area.X < 0 - W.area.Width)
@@ -73,7 +81,7 @@ namespace spnmario
                     deltaX = d.web.area.X - W.area.X;
                     angle = Math.Atan2(deltaY, deltaX);
                     ++randomDelay;
-                    if (randomDelay > 100)
+                    if (randomDelay > 40)
                     {
                         randomAngle = (extendedRanAngle.Next((int)((Math.PI / 2) * 1000)) / 1000.0 - (Math.PI / 4));
                         randomDelay = 0;
@@ -82,6 +90,16 @@ namespace spnmario
                     W.area.X += (int)(onScreenSpeed * (float)Math.Cos(angle));
                     W.area.Y += (int)(onScreenSpeed * (float)Math.Sin(angle));
                 }
+            }
+
+            base.Update(gameTime);
+            
+        }
+        public override void Draw(SpriteBatch theSB)
+        {
+            if (isActive)
+            {
+                base.Draw(theSB);
             }
         }
     }

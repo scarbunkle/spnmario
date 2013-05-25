@@ -5,4 +5,8 @@ Content\Title Slide.xnb
 Content\winscreen.xnb
 Content\TileAssetSheet.xnb
 Content\samoosedraft.xnb
+<<<<<<< HEAD
+=======
+Content\anitest.xnb
+>>>>>>> origin/Spirit
 Content\track.xnb
