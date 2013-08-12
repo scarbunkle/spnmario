@@ -34,56 +34,23 @@ namespace spnmario
             currentstate = Keyboard.GetState();
 
             //left movement
-            if (currentstate.IsKeyDown(Keys.Left) && !(Interaction.isColliding(l,d.web.points[0]) || Interaction.isColliding(l, d.web.points[5])))
+            if (currentstate.IsKeyDown(d.control[0]) && !(Interaction.isColliding(l,d.web.points[0]) || Interaction.isColliding(l, d.web.points[5])))
             {
                 d.animate(gameTime);
-                //simple move for range > gamewidth/4 and endpoint
-                if (!(d.web.area.X < Game1.gameWidth / 4 && l.theLevel[0, 0].rect.X < 0))
-                {
                     //move dude left dSpeed
                     d.moveLeft(Dude.speed);
-                }
-                else//move for range < gamewidth/4
-                {
-                    //move level right dSpeed
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X += Dude.speed;
-                    }
-                    //move non-dude sprites right dSpeed
-                    foreach (Sprite sp in s)
-                    {
-                        
-                        sp.moveRight(Dude.speed);
-                    }
-                }
+               
             } 
             //right movement
-            if (currentstate.IsKeyDown(Keys.Right) && !(Interaction.isColliding(l, d.web.points[1]) || Interaction.isColliding(l, d.web.points[2])))
+            if (currentstate.IsKeyDown(d.control[1]) && !(Interaction.isColliding(l, d.web.points[1]) || Interaction.isColliding(l, d.web.points[2])))
             {
                 d.animate(gameTime);
-                //Simple move for range < gamewidth/2 and endpoint
-                if (!(d.web.area.X > Game1.gameWidth / 2 && l.theLevel[l.theLevel.GetLength(0) - 1, l.theLevel.GetLength(1) - 1].rect.X > Game1.gameWidth - Level.tileSide))
-                {
+ 
                     //move dude right dSpeed
                     d.moveRight(Dude.speed);
-                }
-                else //move for complex conditions
-                {
-                    //move level left dspeed
-                    foreach (Tile t in l.theLevel)
-                    {
-                        t.rect.X -= Dude.speed;
-                    }
-                    //move non-dude sprites left dspeed
-                    foreach (Sprite sp in s)
-                    {
-                            sp.moveLeft(Dude.speed);
-                    }
-                }
             }
             //jump management
-            if (currentstate.IsKeyDown(Keys.Space))
+            if (currentstate.IsKeyDown(d.control[2]))
             {
                 if (!(Interaction.isColliding(l, d.web.points[6]) || Interaction.isColliding(l, d.web.points[7])))
                 {

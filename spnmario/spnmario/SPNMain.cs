@@ -23,11 +23,12 @@ namespace spnmario
         /** MAGIC NUMBERS SECTION*/
         public static int gameHeight=720;
         public static int gameWidth = 1280;
-        public static int dudeHeight = 538/4;
-        public static int dudeWidth = 733/4;
+        public static int dudeHeight = 100;
+        public static int dudeWidth = 80;
 
         //Dude is our Character.  
         Dude dude;
+        Dude playertwo;
         Sprite[] mobs;
         //Level as a class lets us keep all the yucky for-loops of our Main.
         Level samplelevel;
@@ -43,8 +44,8 @@ namespace spnmario
         Texture2D win; //Last Slide
 
         //Used to play music
-        SoundEffect sound; 
-        SoundEffectInstance song;
+        // SoundEffect sound; 
+        //SoundEffectInstance song;
 
         ListenerManager listeners;
 
@@ -83,17 +84,18 @@ namespace spnmario
             showing = Display.Title;
             title = Content.Load<Texture2D>("Title Slide");
             win = Content.Load<Texture2D>("winscreen");
-            LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
-            sound = Content.Load<SoundEffect>("track");
-            song = sound.CreateInstance();
-            song.IsLooped = true;
+            LoadLevel("dirt", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\RACECOURSE.csv", "samoosedraft");
+            //sound = Content.Load<SoundEffect>("track");
+            //song = sound.CreateInstance();
+            //song.IsLooped = true;
         }
 
         //used to load a level
         public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
-            dude = new Dude(Content.Load<Texture2D>("anitest"), new Rectangle(200, 500, dudeWidth, dudeHeight), 4);
+            dude = new Dude(Content.Load<Texture2D>("wooster"), new Rectangle(300, 500, dudeWidth, dudeHeight), 2, true);
+            playertwo = new Dude(Content.Load<Texture2D>("fograt"), new Rectangle(300, 500, 100, dudeHeight), 2, false);
             mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>
@@ -122,20 +124,35 @@ namespace spnmario
                     //song.Play();
                     samplelevel.Update();
                     dude.Update(samplelevel, gameTime);
+                    playertwo.Update(samplelevel, gameTime);
+                    
+                    listeners.Update(playertwo, mobs, samplelevel, gameTime);
                     listeners.Update(dude, mobs, samplelevel, gameTime);
+                    
+
+                    //move time
+                    if (gameTime.TotalGameTime.Seconds > 1.5)
+                    {
+                        dude.moveLeft(4);
+                        playertwo.moveLeft(4);
+                        foreach (Tile t in samplelevel.theLevel)
+                        {
+                            t.rect.X -= 4;
+                        }
+                    }
                     //attempt to update mobs
-                    foreach (Sprite s in mobs)
+                    /*foreach (Sprite s in mobs)
                     {
                         s.Update(dude, gameTime);
-                    }
+                    }*/
 
-                    if (dude.web.area.X > gameWidth-3*dudeWidth) //allows victory
+                    if (dude.web.area.X > samplelevel.theLevel[0,samplelevel.length-1].rect.X) //allows victory
                     {
                         showing = Display.End;
                     }
                     if (dude.web.area.Y > gameHeight) //Allows death
                     {
-                        LoadLevel("TileAssetSheet", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\sample2.csv", "samoosedraft");
+                        LoadLevel("dirt", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\RACECOURSE.csv", "samoosedraft");
                     }
                  break;
                 case Display.Title: //start screen
@@ -164,9 +181,10 @@ namespace spnmario
                 case Display.Play:
                     samplelevel.Draw(spriteBatch);
                     dude.Draw(spriteBatch);
-                    foreach (Sprite s in mobs){
+                    playertwo.Draw(spriteBatch);
+                    /*foreach (Sprite s in mobs){
                         s.Draw(spriteBatch);
-                    }
+                    }*/
                     break;
                 case Display.Title:
                     spriteBatch.Draw(title, new Vector2(0, 0), Color.White);

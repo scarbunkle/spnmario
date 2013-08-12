@@ -25,6 +25,14 @@ namespace spnmario
             Cas,
             Bobby,
         }
+        protected Keys[] kontrol;
+        public Keys[] control
+        {
+            get
+            {
+                return kontrol;
+            }
+        }
         //variables for collision logic
         protected bool onGround;
         protected int airTime;//time in air
@@ -39,11 +47,25 @@ namespace spnmario
         }
         
         //constructor
-        public Dude(Texture2D a, Rectangle r, int i):base(a, r, i)
+        public Dude(Texture2D a, Rectangle r, int i, bool isPOne):base(a, r, i)
         {
             onGround = false;
             frames = i;
-            animationSpeed = 200;
+            animationSpeed = 100;
+            kontrol = new Keys[3];
+            if (isPOne == false)
+            {
+                kontrol[0] = Keys.A;
+                kontrol[1] = Keys.S;
+                kontrol[2] = Keys.LeftShift;
+            }
+            else
+            {
+                kontrol[0] = Keys.N;
+                kontrol[1] = Keys.M;
+                kontrol[2] = Keys.Space;
+            }
+
         }
 
         //update loop
@@ -105,7 +127,10 @@ namespace spnmario
 
         public void animate(GameTime gameTime)
         {
-            base.Update(gameTime);
+            if (onGround)
+            {
+                base.Update(gameTime);
+            }
         }
     }
 }

@@ -47,6 +47,16 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="fograt.PNG">
+      <Name>fograt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="wooster.png">
+      <Name>wooster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="mishapocalypse.jpg">
@@ -84,6 +94,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="RACECOURSE.csv">
+      <Name>RACECOURSE</Name>
+    </None>
     <None Include="sample2.csv">
       <Name>sample2</Name>
     </None>
@@ -108,6 +121,20 @@
   <ItemGroup>
     <Compile Include="anitest.jpg">
       <Name>anitest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="misha.png">
+      <Name>misha</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dirt.png">
+      <Name>dirt</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

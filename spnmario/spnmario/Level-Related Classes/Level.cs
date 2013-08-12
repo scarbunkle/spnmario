@@ -26,7 +26,7 @@ namespace spnmario
                 return tL;
             }
         }
-        protected int length;
+        public int length;
         protected int height;
         
         //advanced constructor
