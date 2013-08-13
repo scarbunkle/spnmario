@@ -57,6 +57,11 @@ namespace spnmario
                     d.Jump(12);//dude up 12
                     d.animate(gameTime);
                 }
+                else
+                {
+                    Interaction.inTile(l, d.web.points[6]).isActive = true;
+                    Interaction.inTile(l, d.web.points[7]).isActive = true;
+                }
             }
         }
 

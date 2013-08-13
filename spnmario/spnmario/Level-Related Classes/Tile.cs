@@ -33,12 +33,15 @@ namespace spnmario
             }
         }
         protected bool drawme; //controls whether it's drawn/solid
+        public bool isActive;
+        public int activeTime;
 
         //advanced constructor
         public Tile(Rectangle r, Texture2D asset, Int16 i)
         {
             dirt = asset;
             rect = r;
+            isActive = false;
             switch (i)
             {
                 default:
@@ -68,7 +71,18 @@ namespace spnmario
         //Update calls all our update-cycle logic.
         public void Update()
         {
-
+            if (isActive)
+            {
+                activeTime++;
+            }
+            else
+            {
+                activeTime = 0;
+            }
+            if (activeTime > 70)
+            {
+                isActive = false;
+            }
         }
         //Draws if you can't be here.
         public void Draw(SpriteBatch theSB)
@@ -77,7 +91,14 @@ namespace spnmario
                 default:
                     break;
                 case TType.misha:
-                    theSB.Draw(dirt, rect, new Rectangle(0,0,Level.tileSide,Level.tileSide), Color.White);
+                    if (!(isActive))
+                    {
+                        theSB.Draw(dirt, rect, new Rectangle(0, 0, Level.tileSide, Level.tileSide), Color.White);
+                    }
+                    else
+                    {
+                        theSB.Draw(dirt, rect, new Rectangle(0, 0, Level.tileSide, Level.tileSide), Color.Blue);
+                    }
                     break;
                 case TType.ground:
                     theSB.Draw(dirt, rect, new Rectangle(Level.tileSide,0,Level.tileSide,Level.tileSide), Color.White);

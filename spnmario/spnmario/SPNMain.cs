@@ -82,8 +82,8 @@ namespace spnmario
 
             // TODO: use this.Content to load your game content here
             showing = Display.Title;
-            title = Content.Load<Texture2D>("Title Slide");
-            win = Content.Load<Texture2D>("winscreen");
+            title = Content.Load<Texture2D>("Title");
+            win = Content.Load<Texture2D>("end");
             LoadLevel("dirt", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\RACECOURSE.csv", "samoosedraft");
             //sound = Content.Load<SoundEffect>("track");
             //song = sound.CreateInstance();
@@ -94,8 +94,8 @@ namespace spnmario
         public void LoadLevel(string tileAsset, string levelPath, string charAssetSheet)
         {
             samplelevel = new Level(Content.Load<Texture2D>(tileAsset), CSVRead.getLevel(levelPath));
-            dude = new Dude(Content.Load<Texture2D>("wooster"), new Rectangle(300, 500, dudeWidth, dudeHeight), 2, true);
-            playertwo = new Dude(Content.Load<Texture2D>("fograt"), new Rectangle(300, 500, 100, dudeHeight), 2, false);
+            dude = new Dude(Content.Load<Texture2D>("wooster"), new Rectangle(400, 400, dudeWidth, dudeHeight), 2, true);
+            playertwo = new Dude(Content.Load<Texture2D>("fograt"), new Rectangle(300, 400, 100, dudeHeight), 2, false);
             mobs = new Sprite[] { new SpIRIT(Content.Load<Texture2D>("char"), new Rectangle(100, 200, dudeWidth, dudeHeight), new Checkpoint(2000, 200)) };
         }
         /// <summary>
@@ -131,7 +131,7 @@ namespace spnmario
                     
 
                     //move time
-                    if (gameTime.TotalGameTime.Seconds > 1.5)
+                    if (gameTime.TotalGameTime.Seconds > 1.5 && !(samplelevel.isPaused()))
                     {
                         dude.moveLeft(4);
                         playertwo.moveLeft(4);
@@ -150,7 +150,7 @@ namespace spnmario
                     {
                         showing = Display.End;
                     }
-                    if (dude.web.area.Y > gameHeight) //Allows death
+                    if (dude.web.area.Y > gameHeight || dude.web.area.X < 0 || playertwo.web.area.Y > gameHeight || playertwo.web.area.X < 0) //Allows death
                     {
                         LoadLevel("dirt", @"C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmarioContent\RACECOURSE.csv", "samoosedraft");
                     }
@@ -165,6 +165,7 @@ namespace spnmario
             }
             base.Update(gameTime);
         }
+
 
         /// <summary>
         /// This is called when the game should draw itself.

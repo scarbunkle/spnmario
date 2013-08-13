@@ -44,6 +44,14 @@ namespace spnmario
             }
         }
 
+        public bool isPaused(){
+            foreach (Tile t in theLevel){
+                if (t.isActive){
+                    return true;
+                }
+            }
+                return false;
+        }
 
         //Update Loop
         public void Update()

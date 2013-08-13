@@ -11,3 +11,5 @@ Content\wooster.xnb
 Content\fograt.xnb
 Content\misha.xnb
 Content\dirt.xnb
+Content\Title.xnb
+Content\end.xnb

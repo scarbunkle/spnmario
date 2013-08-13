@@ -39,3 +39,5 @@ C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\fograt.xnb
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\misha.xnb
 C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\dirt.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Title.xnb
+C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\end.xnb

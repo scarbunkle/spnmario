@@ -118,6 +118,24 @@
       <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\dirt.xnb</Output>
       <Time>2013-08-12T02:07:20.8035891-04:00</Time>
     </Item>
+    <Item>
+      <Source>Title.png</Source>
+      <Name>Title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\Title.xnb</Output>
+      <Time>2013-08-12T21:40:13.6350488-04:00</Time>
+    </Item>
+    <Item>
+      <Source>end.png</Source>
+      <Name>end</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sarah\Documents\GitHub\spnmario\spnmario\spnmario\bin\x86\Debug\Content\end.xnb</Output>
+      <Time>2013-08-12T21:40:36.2147764-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
